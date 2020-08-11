@@ -40,7 +40,7 @@ namespace HospitalManagement.Controllers
 
 
         /*---------------------------------------------*/
-        /*-         Add Information for Nurse        -*/
+        /*-         Add Information for Nurse         -*/
         /*---------------------------------------------*/
         public ActionResult AddNurse()
         {
@@ -58,7 +58,7 @@ namespace HospitalManagement.Controllers
         }
 
         /*---------------------------------------------*/
-        /*-              View Nurse List             -*/
+        /*-              View Nurse List              -*/
         /*---------------------------------------------*/
         public ActionResult NurseList()
         {
@@ -66,7 +66,7 @@ namespace HospitalManagement.Controllers
         }
 
         /*---------------------------------------------*/
-        /*-         Edit Nurse Information           -*/
+        /*-         Edit Nurse Information            -*/
         /*---------------------------------------------*/
         public ActionResult EditNurse(string id)
         {
@@ -105,7 +105,7 @@ namespace HospitalManagement.Controllers
         }
 
         /*---------------------------------------------*/
-        /*-         Delete Nurse Information         -*/
+        /*-         Delete Nurse Information          -*/
         /*---------------------------------------------*/
         public ActionResult DeleteNurse(string id)
         {

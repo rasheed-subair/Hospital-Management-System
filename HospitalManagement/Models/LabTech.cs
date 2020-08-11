@@ -14,6 +14,5 @@ namespace HospitalManagement.Models
         public string Password { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-        public string L_Department { get; set; }
     }
 }

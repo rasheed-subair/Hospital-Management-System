@@ -303,13 +303,26 @@
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Admin\admin_index.cshtml" />
+    <Content Include="Views\Admin\AdminList.cshtml" />
+    <Content Include="Views\Admin\AddAdmin.cshtml" />
+    <Content Include="Views\Admin\EditAdmin.cshtml" />
+    <Content Include="Views\Admin\DeleteAdmin.cshtml" />
+    <Content Include="Views\LabTech\AddLabTech.cshtml" />
+    <Content Include="Views\LabTech\LabTechList.cshtml" />
+    <Content Include="Views\LabTech\EditLabTech.cshtml" />
+    <Content Include="Views\LabTech\DeleteLabTech.cshtml" />
+    <Content Include="Views\Nurse\AddNurse.cshtml" />
+    <Content Include="Views\Nurse\NurseList.cshtml" />
+    <Content Include="Views\Nurse\EditNurse.cshtml" />
+    <Content Include="Views\Nurse\DeleteNurse.cshtml" />
+    <Content Include="Views\Pharmacist\AddPharmacist.cshtml" />
+    <Content Include="Views\Pharmacist\PharmacistList.cshtml" />
+    <Content Include="Views\Pharmacist\EditPharmacist.cshtml" />
+    <Content Include="Views\Pharmacist\DeletePharmacist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\LabTech\" />
-    <Folder Include="Views\Nurse\" />
     <Folder Include="Views\Patient\" />
-    <Folder Include="Views\Pharmacist\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

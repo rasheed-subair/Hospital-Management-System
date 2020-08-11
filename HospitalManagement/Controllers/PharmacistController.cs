@@ -40,7 +40,7 @@ namespace HospitalManagement.Controllers
 
 
         /*---------------------------------------------*/
-        /*-         Add Information for Pharmacist        -*/
+        /*-      Add Information for Pharmacist       -*/
         /*---------------------------------------------*/
         public ActionResult AddPharmacist()
         {
@@ -58,7 +58,7 @@ namespace HospitalManagement.Controllers
         }
 
         /*---------------------------------------------*/
-        /*-              View Pharmacist List             -*/
+        /*-            View Pharmacist List           -*/
         /*---------------------------------------------*/
         public ActionResult PharmacistList()
         {
@@ -66,7 +66,7 @@ namespace HospitalManagement.Controllers
         }
 
         /*---------------------------------------------*/
-        /*-         Edit Pharmacist Information           -*/
+        /*-       Edit Pharmacist Information         -*/
         /*---------------------------------------------*/
         public ActionResult EditPharmacist(string id)
         {
@@ -106,7 +106,7 @@ namespace HospitalManagement.Controllers
         }
 
         /*---------------------------------------------*/
-        /*-         Delete Pharmacist Information         -*/
+        /*-       Delete Pharmacist Information       -*/
         /*---------------------------------------------*/
         public ActionResult DeletePharmacist(string id)
         {
