@@ -11,6 +11,11 @@ namespace HospitalManagement.Controllers
 {
     public class DoctorController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         /*---------------------------------------------*/
         /*-         Create and save cache             -*/
         /*---------------------------------------------*/
@@ -32,10 +37,7 @@ namespace HospitalManagement.Controllers
             cache["doctors"] = doctors;
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
 
         /*---------------------------------------------*/
         /*-         Add Information for Doctor        -*/
