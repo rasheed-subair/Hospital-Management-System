@@ -1,0 +1,477 @@
+﻿<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekhmet - Doctor's page</title>
+
+    <!-- CSS JS Compressed files -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/mystylesheet.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/popper.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <style type="text/css">
+    
+  </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="nav text-white" id="navbar">
+            <header>
+                <h4 class="mt-3 px-3">Doctor</h4>
+                <hr>
+                <div class="mr-5">
+                    <div class="nav-profile mx-2 ">
+                        <p class="px-1"><i class="fas fa-user"></i> Dr. Fisayo Subair</p>
+                    </div>
+                </div>
+                <br>
+                <div class="nav nav-tabs d-block" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link main-nav-link active" id="doctor-tab" data-toggle="tab" href="#dashboard-content" role="tab" aria-controls="dashboard-content" aria-selected="true">
+                        <i class="fas fa-home"></i> Dashboard
+                  </a>
+                  <a class="nav-item nav-link main-nav-link" id="patient-tab" data-toggle="tab" href="#patient-content" role="tab" aria-controls="patient-content" aria-selected="false">
+                        <i class="fas fa-user-injured"></i> Patient
+                  </a>
+                  <a class="nav-item nav-link main-nav-link" id="appointment-tab" data-toggle="tab" href="#appointment-content" role="tab" aria-controls="appointment-content" aria-selected="false">
+                     <i class="far fa-calendar-alt"></i> Appointment
+                  </a>
+                  <a class="nav-item nav-link main-nav-link" id="prescription-tab" data-toggle="tab" href="#prescription-content" role="tab" aria-controls="prescription-content" aria-selected="false">
+                     <i class="fas fa-pills"></i> Prescription
+                  </a>
+                    
+                </div>
+            </header>
+        </nav>
+
+
+        <main id="main-doc" class="mt-4">
+            <!-- Main Navigation bar on left side of screen -->
+            <nav class="alt-nav ">
+
+                <div class="container text-center text-secondary mb-4">
+                    <h3>Hospital Management System</h3>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6 text-left text-secondary">Doctor</div>
+                    <div class="col-6 text-right"> 
+                        <a href="login.html" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                </div>
+                <hr>
+            </nav>
+
+            <!-- Content declares the elments of the nav-links created above. They only display when the nav-links are clicked.  -->
+            <div class="content"> 
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- Admin content - START -->
+                    <!-- Admin content - START -->
+                     <div class="mx-5 tab-pane fade show active" id="dashboard-content" role="tabpanel" aria-labelledby="dashboard-content">
+                        <div class="card-deck admin-card my-5">
+                            <div class="row mx-5">
+                                 <div class="col-md-6 col-lg-6 mb-5">
+                                       <div class="card">
+                                          <div class="card-body">
+                                             <div class="row  text-info">
+                                                <div class="col-7"> <h4 class="card-text">Dashboard</h4></div>
+                                                <div class="col-5 card-image"><i class="fas fa-user-md"></i></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                 </div>
+                                 
+                                 <div class="col-md-6 col-lg-6 mb-5">
+                                    <div class="card text-danger">
+                                       <div class="card-body">
+                                          <div class="row">
+                                             <div class="col-7"> <h4 class="card-text">Patient</h4></div>
+                                             <div class="col-5 card-image"><i class="fas fa-user-injured"></i></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="col-md-6 col-lg-6 mb-5">
+                                    <div class="card text-secondary">
+                                       <div class="card-body">
+                                          <div class="row">
+                                             <div class="col-7"> <h4 class="card-text">Appointment</h4></div>
+                                             <div class="col-5 card-image"><i class="far fa-calendar-alt"></i></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="col-md-6 col-lg-6 mb-5">
+                                    <div class="card text-success">
+                                       <div class="card-body">
+                                          <div class="row">
+                                             <div class="col-7"> <h4 class="card-text">Prescription</h4></div>
+                                             <div class="col-5 card-image"><i class="fas fa-pills"></i></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                            </div>
+                        </div>
+                     </div>
+                    <!-- Admin content - END -->
+                    <!-- Admin content - END -->
+
+                    <!-- Patient's content - START -->
+                    <!-- Patient's content - START -->
+                    <div class="tab-pane fade show" id="patient-content" role="tabpanel" aria-labelledby="patient-tab">
+                        <ul class="nav nav-tabs" id="mylist" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <a class="nav-link active" id="list-tab" data-toggle="tab" href="#patient-list" role="tab" aria-controls="patient-list" aria-selected="true"><i class="fas fa-list-ul"></i> Patient list</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <a class="nav-link" id="add-tab" data-toggle="tab" href="#patient-add" role="tab" aria-controls="patient-add" aria-selected="false"><i class="far fa-plus-square"></i> Add Patient</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="patient-list" role="tabpanel" aria-labelledby="patient-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Phone number</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">Email</th>
+                                        <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Oluwatobiloba Ajani</td>
+                                            <td>15 Eleshin, Ajah</td>
+                                            <td>09023459810</td>
+                                            <td>Male</td>
+                                            <td>Liasu-Thomas@gmail.com</td>
+                                            <td><button type="submit" class="btn btn-outline-secondary"><i class="far fa-eye"></i> Patient Profile</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Sheriff Adigun</td>
+                                            <td>2B Grand Hills, Ojota</td>
+                                            <td>08171112343</td>
+                                            <td>Male</td>
+                                            <td>adigun-sosoliso@yahoo.com</td>
+                                            <td><button type="submit" class="btn btn-outline-secondary"><i class="far fa-eye"></i> Patient Profile</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Oluwasunkanmi Afolabi</td>
+                                            <td>300, 1G4 Lekki</td>
+                                            <td>07089123376</td>
+                                            <td>Male</td>
+                                            <td>DejiDEjo@hotmail.com</td>
+                                            <td><button type="submit" class="btn btn-outline-secondary"><i class="far fa-eye"></i> Patient Profile</button></td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                            </div>
+
+                            <div class="tab-pane fade" id="patient-add" role="tabpanel" aria-labelledby="patient-add">
+                                <div class="container mt-3 w-75">
+                                    <form action=""></form>
+                                        <h3 class="text-center">General Information</h3>
+                                        <div class="form-group">
+                                            <label for="patient-fullname">Full Name</label>
+                                            <input type="text" class="form-control" id="patient-fullname" placeholder="Jameson Doevile">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="patient-address">Address</label>
+                                            <input type="text" class="form-control" id="patient-address" placeholder="123 Main St, City, State.">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="patient-email">Email</label>
+                                                <input type="email" class="form-control" id="patient-email" placeholder="john-doe@random.com">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="patient-number">Phone number</label>
+                                                <input type="number" class="form-control" id="patient-number" placeholder="(+234)9057024256">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <legend class="col-form-label">Sex:</legend>
+                                            <div class="form-check form-check-inline">
+                                                <label for="patient-sex" class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="patient-sex" value="male">Male
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label for="patient-sex" class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="patient-sex" value="female">Female
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label for="patient-sex" class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="patient-sex" value="other">Other
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group ">
+                                            <label for="patient_occupation">Occupation:</label>
+                                            <input type="text" class="form-control" id="patient_occupation" placeholder="">
+                                        </div>
+                                        <div>
+                                            <legend class="col-form-label">Marital Status:</legend>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="marital-status" value="married">Married
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="marital-status" value="single">Single
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="marital-status" value="divorced">Divorced
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="marital-status" value="widowed">Widowed
+                                                </label>
+                                            </div>
+                                        </div> <br>
+                                        
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="input-group mb-3">
+                                                    <input type="number" class="form-control" id="patient-weight" placeholder="Weight" value="patient-weight">
+                                                    <div class="input-group-append">
+                                                      <span class="input-group-text">kg</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="input-group mb-3">
+                                                    <input type="number" class="form-control" id="patient-height" placeholder="Height" value="patient-height">
+                                                    <div class="input-group-append">
+                                                      <span class="input-group-text">cm</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <hr>
+                                        <h3 class="text-center">Emergency Contact</h3>
+                                        
+                                        <div class="form-group">
+                                            <label for="inputAddress2">Full Name</label>
+                                            <input type="text" class="form-control" id="emergency-name" placeholder="Janet Doelington">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Relationship</label>
+                                                <input type="email" class="form-control" id="inputEmail4" placeholder="john-doe@random.com">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Phone number</label>
+                                                <input type="number" class="form-control" id="emergency-number" placeholder="(+234)9057024256">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <h3 class="text-center">Medical History</h3>
+                                        <button type="submit" class="btn btn-primary mb-4"><i class="far fa-plus-square"></i> Add</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Patient's content - END -->
+                    <!-- Patient's content - END -->
+
+                    <!-- Appointment content - START -->
+                    <!-- Appointment content - START -->
+                    <div class="tab-pane fade" id="appointment-content" role="tabpanel" aria-labelledby="appointment-content">
+                        <ul class="nav nav-tabs" id="mylist" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <a class="nav-link active" id="list-tab" data-toggle="tab" href="#appointments" role="tab" aria-controls="doctor-list" aria-selected="true"><i class="fas fa-list-ul"></i> Appointments</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <a class="nav-link" id="add-tab" data-toggle="tab" href="#add-appointments" role="tab" aria-controls="doctor-add" aria-selected="false"><i class="far fa-plus-square"></i> Add Appointment</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="appointments" role="tabpanel" aria-labelledby="appointments">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Patient</th>
+                                        <th scope="col">Doctor</th>
+                                        <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>23/08/2029</td>
+                                            <td>Sam Ani</td>
+                                            <td>Jumobi Liasu-Thomas</td>
+                                            <td><button type="submit" class="btn btn-outline-info"><i class="far fa-eye"></i> Patient Profile</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>21/08/2020</td>
+                                            <td>John Doe</td>
+                                            <td>Sodiq Adigun</td>
+                                            <td><button type="submit" class="btn btn-outline-info"><i class="far fa-eye"></i> Patient Profile</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="add-appointments" role="tabpanel" aria-labelledby="doctor-add">
+                                <div class="container mt-3 w-100">
+                                    <form action="">
+                                        <div class="form-group w-50">
+                                            <label for="appointment-doctor">Doctor: </label>
+                                            <input type="text" class="form-control" id="appointment-doctor" placeholder="" value="Jim Doughborough" disabled>
+                                        </div>
+                                        
+                                        <div class="form-group w-50">
+                                            <label for="appointment-date">Date</label>
+                                            <input type="date" class="form-control" id="appointment-date" placeholder="">
+                                        </div>
+                                        
+                                        <div class="form-group w-50">
+                                            <label for="patients">Patient</label>
+                                            <select name="patients" id="appointment-patients" class="custom-select">
+                                                <option value="">Choose Patient...</option>
+                                                <option value="">Sam Ani</option>
+                                                <option value="">John Doe</option>
+                                                <option value="">Cassie Kay</option>
+                                                
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mb-4"><i class="far fa-plus-square"></i> Add</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Appointment content - END -->
+                    <!-- Appointment content - END -->
+
+                    <!-- Medication content - START -->
+                    <!-- Medication content - START -->
+                    <div class="tab-pane fade" id="prescription-content" role="tabpanel" aria-labelledby="prescription-content">
+                        <ul class="nav nav-tabs" id="mylist" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <a class="nav-link active" id="list-tab" data-toggle="tab" href="#prescription-list" role="tab" aria-controls="prescription-list" aria-selected="true"><i class="fas fa-list-ul"></i> Prescription</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <a class="nav-link" id="add-tab" data-toggle="tab" href="#add-prescription" role="tab" aria-controls="add-prescription" aria-selected="false"><i class="far fa-plus-square"></i> Add Prescription</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="prescription-list" role="tabpanel" aria-labelledby="prescription-list">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Patient</th>
+                                        <th scope="col">Doctor</th>
+                                        <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>23/08/2029</td>
+                                            <td>Sam Ani</td>
+                                            <td>Jumobi Liasu-Thomas</td>
+                                            <td><button type="submit" class="btn btn-outline-info"><i class="far fa-eye"></i> Patient Profile</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>21/08/2020</td>
+                                            <td>John Doe</td>
+                                            <td>Sodiq Adigun</td>
+                                            <td><button type="submit" class="btn btn-outline-info"><i class="far fa-eye"></i> Patient Profile</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>23/08/2029</td>
+                                            <td>Sam Ani</td>
+                                            <td>Jumobi Liasu-Thomas</td>
+                                            <td><button type="submit" class="btn btn-outline-info"><i class="far fa-eye"></i> Patient Profile</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="add-prescription" role="tabpanel" aria-labelledby="add-prescription">
+                                <div class="container mt-3 w-75">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="appointment-doctor">Doctor </label>
+                                            <input type="text" class="form-control" id="appointment-doctor" placeholder="" value="Jim Doughborough" disabled>
+                                        </div>
+                                        
+                                        <div class="form-group w-50">
+                                            <label for="patients">Patient</label>
+                                            <select name="patients" id="prescription-patients" class="custom-select">
+                                                <option value="">Choose Patient...</option>
+                                                <option value="">Sam Ani</option>
+                                                <option value="">John Doe</option>
+                                                <option value="">Cassie Kay</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Case History</label>
+                                            <textarea type="textarea" class="form-control" id="case-history" placeholder="Description of current case..."></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Medication</label>
+                                            <textarea type="textarea" class="form-control" id="medication" placeholder="List of medication for patient..."></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Description</label>
+                                            <textarea type="textarea" class="form-control" id="description" placeholder="Physician's description of patient's ailment..."></textarea>
+                                        </div>
+
+                                        <div class="form-group w-50">
+                                            <label for="medication-date">Date</label>
+                                            <input type="date" class="form-control" id="medication-date" placeholder="">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mb-4"><i class="far fa-plus-square"></i> Add</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    <!-- Medication content - END -->
+                    <!-- Medication content - END -->
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+     
+    </script>
+</body>
+</html>
