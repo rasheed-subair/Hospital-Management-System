@@ -66,7 +66,21 @@ namespace HospitalManagement.Controllers
         /*---------------------------------------------*/
         /*-             View Patient Detail           -*/
         /*---------------------------------------------*/
+        public ActionResult PatientDetails(string id)
+        {
+            // Search memory for staff with unique id and assign to the variable then display if found
+            Patient patient = patients.FirstOrDefault(s => s.Id == id);
 
+            if (patient == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(patient);
+            }
+
+        }
 
 
         /*---------------------------------------------*/
@@ -114,8 +128,6 @@ namespace HospitalManagement.Controllers
                 patientToEdit.Smoke = patient.Smoke;
                 patientToEdit.Caffeine = patient.Caffeine;
                 patientToEdit.Recreational_Drugs = patient.Recreational_Drugs;
-                patientToEdit.DOB = patient.DOB;
-                patientToEdit.DOB = patient.DOB;
 
                 SaveCache();
                 return RedirectToAction("PatientList");

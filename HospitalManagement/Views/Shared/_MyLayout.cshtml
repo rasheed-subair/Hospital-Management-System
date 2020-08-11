@@ -16,9 +16,10 @@
     <header class=" container-fluid bg-dark text-white p-4 main-header">
         <div class="inner">
             <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link active" href="#">Homepage</a>
+                <a class="nav-link" href="#">Profile</a>
+                <a class="nav-link" href="/Home/Login">Logout <i class="fas fa-sign-out-alt"></i></a>
+                
             </nav>
         </div>
     </header>
@@ -27,11 +28,11 @@
         <div id="footer-wrapper">
             <div id="footer-content">
                 <div id="fbox1">
-                    @RenderBody()
+                    <div class="my-5">
+                        @RenderBody()
+                    </div>
                 </div>
-                <div id="fbox2">
-
-                </div>
+                    
             </div>
         </div>
     </div>

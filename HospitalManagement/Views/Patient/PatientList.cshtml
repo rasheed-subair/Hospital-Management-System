@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<HospitalManagement.Models.Patient>
 
 <p>
-    @Html.ActionLink("Create New", "AddPatient")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -37,6 +37,48 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Medication)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arthritis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Asthma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cancer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Depression)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diabetes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emphysema)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epilepsy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Heart_Disease)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HBP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.High_Cholesterol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hypothyroidism)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Renal_Disease)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stroke)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thyroid)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Alcohol)
@@ -89,6 +131,48 @@
             @Html.DisplayFor(modelItem => item.Medication)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Arthritis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asthma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cancer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Depression)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diabetes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emphysema)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epilepsy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Heart_Disease)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HBP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.High_Cholesterol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hypothyroidism)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Renal_Disease)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stroke)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thyroid)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Alcohol)
         </td>
         <td>
@@ -101,9 +185,9 @@
             @Html.DisplayFor(modelItem => item.Recreational_Drugs)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "EditPatient", new { id=item.Id }) |
+            @Html.ActionLink("Details", "PatientDetails", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeletePatient", new { id=item.Id })
         </td>
     </tr>
 }

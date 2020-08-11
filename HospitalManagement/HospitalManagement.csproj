@@ -284,7 +284,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_AddPatient.cshtml" />
     <Content Include="Views\Doctor\AddDoctor.cshtml" />
     <Content Include="Views\Doctor\DoctorList.cshtml" />
     <Content Include="Views\Doctor\EditDoctor.cshtml" />
@@ -319,10 +318,14 @@
     <Content Include="Views\Pharmacist\PharmacistList.cshtml" />
     <Content Include="Views\Pharmacist\EditPharmacist.cshtml" />
     <Content Include="Views\Pharmacist\DeletePharmacist.cshtml" />
+    <Content Include="Views\Patient\AddPatient.cshtml" />
+    <Content Include="Views\Patient\PatientList.cshtml" />
+    <Content Include="Views\Patient\EditPatient.cshtml" />
+    <Content Include="Views\Patient\DeletePatient.cshtml" />
+    <Content Include="Views\Patient\PatientDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Patient\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

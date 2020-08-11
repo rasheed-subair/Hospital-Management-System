@@ -37,8 +37,23 @@ namespace HospitalManagement.Models
         public string Allergies { get; set; }
         // Medication to be listed in a textbox
         public string Medication { get; set; }
-        [DisplayName("Personal Medical History")]
-        public Disease_Condition Medical_History { get; set; }
+
+        //Medical History
+        public bool Arthritis { get; set; }
+        public bool Asthma { get; set; }
+        public bool Cancer { get; set; }
+        public bool Depression { get; set; }
+        public bool Diabetes { get; set; }
+        public bool Emphysema { get; set; }
+        public bool Epilepsy { get; set; }
+        public bool Heart_Disease { get; set; }
+        public bool HBP { get; set; }
+        public bool High_Cholesterol { get; set; }
+        public bool Hypothyroidism { get; set; }
+        public bool Renal_Disease { get; set; }
+        public bool Stroke { get; set; }
+        public bool Thyroid { get; set; }
+
         public bool Alcohol { get; set; }
         public bool Smoke { get; set; }
         public bool Caffeine { get; set; }
@@ -59,23 +74,8 @@ namespace HospitalManagement.Models
         Divorced,
         Widowed
     }
-    public enum Disease_Condition
-    {
-        Arthritis,
-        Asthma,
-        Cancer,
-        Depression,
-        Diabetes,
-        Emphysema,
-        Epilepsy,
-        Heart_Disease,
-        HBP,
-        High_Cholesterol,
-        Hypothyroidism,
-        Renal_Disease,
-        Stroke,
-        Thyroid
-    }
+
+
 
     public class PatientRecord
     {

@@ -13,6 +13,7 @@ namespace HospitalManagement.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Name = "Doctor";
             return View();
         }
 
