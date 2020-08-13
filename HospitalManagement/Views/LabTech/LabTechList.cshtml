@@ -55,7 +55,10 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "EditLabTech", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeleteLabTech", new { id=item.Id })
+            <div class="text-danger">
+                @Html.ActionLink("Delete", "DeleteLabTech", new { id = item.Id })
+            </div>
+            
         </td>
     </tr>
 }

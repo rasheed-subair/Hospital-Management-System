@@ -186,8 +186,11 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "EditPatient", new { id=item.Id }) |
-            @Html.ActionLink("Details", "PatientDetails", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeletePatient", new { id=item.Id })
+            @Html.ActionLink("Details", "PatientDetails", new { id=item.Id }) 
+            <div class="text-danger">
+                @Html.ActionLink("Delete", "DeletePatient", new { id = item.Id })
+            </div>
+            
         </td>
     </tr>
 }
