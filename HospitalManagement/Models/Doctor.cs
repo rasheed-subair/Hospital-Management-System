@@ -21,6 +21,7 @@ namespace HospitalManagement.Models
     {
         Aneasthetics,
         Cardiology,
+        Dentistry,
         ENT,
         Geriatrics,
         Gastroenterology,

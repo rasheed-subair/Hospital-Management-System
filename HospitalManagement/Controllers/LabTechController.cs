@@ -31,8 +31,9 @@ namespace HospitalManagement.Controllers
             cache["labtechs"] = labtechs;
         }
 
-        public ActionResult Index()
+        public ActionResult LabTechIndex()
         {
+            ViewBag.Name = "Laboratorist";
             return View();
         }
 

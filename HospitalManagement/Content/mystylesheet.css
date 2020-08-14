@@ -2,8 +2,9 @@
 	--main-blue: #1852b4;
 	--main-lightblue: #4589fc;
 	--main-green: #f26640;
-  }
-body{
+}
+
+body {
 	background-color: rgb(250, 250, 250);
 }
 /* Login page styles - Start */
@@ -16,6 +17,7 @@ body{
 	align-items: center;
 	justify-content: center;
 }
+
 .login {
 	height: 410px;
 	width: 20em;
@@ -35,35 +37,13 @@ body{
 .login-btn {
 	background-color: var(--main-lightblue);
 }
-.login-btn:hover {
-	background-color: var(--main-blue);
-}
+
+	.login-btn:hover {
+		background-color: var(--main-blue);
+	}
 /* Login page styles - End */
 
-/***************************************************************************/
-/****************************************************************************/
-/****************************************************************************/
-.main-header{
-	position: absolute;
-	top: 0px;
-}
 
-.nav-link {
-	font-size: 1.5em;
-	margin: 0px;
-	padding: 10px;
-	text-decoration: none;
-	color: #fff;
-	border-radius: 5px;
-}
-
-.nav-link:hover {
-	background: #6890f5;
-}
-
-/****************************************************************************/
-/****************************************************************************/
-/****************************************************************************/
 /* Index page -Admin styles -Start */
 #navbar {
 	position: fixed;
@@ -90,8 +70,9 @@ body{
 	color: white;
 	font-size: 1.15em;
 }
+
 .main-nav-link:hover {
-	background-color: var(--main-blue);;
+	background-color: var(--main-blue);
 	color: white;
 	border: none;
 	border-bottom: 2px solid white;
@@ -103,15 +84,15 @@ body{
 }
 
 #main-doc {
-	margin-left: 240px;
+	margin-left: 160px;
 	margin-right: 20px;
 	border-radius: 6px;
 	width: 82%;
 	height: auto;
 	padding: 10px;
-  }
+}
 
-  @media (max-width: 600px) {
+@media (max-width: 700px) {
 	#navbar {
 		position: static;
 		border-bottom: 3px solid var(--main-blue);
@@ -122,14 +103,15 @@ body{
 		display: inline-block;
 		text-align: center;
 		overflow-y: scroll;
-  	}
+	}
+
 	#main-doc {
-	  margin-top: 80px;
-	  margin-left: 10px;
-	  float: left; /* Add this to the Logout tag instead*/
-	  width: 97%;
-  	}
-  }
+		margin-top: 80px;
+		margin-left: 10px;
+		float: left; /* Add this to the Logout tag instead*/
+		width: 97%;
+	}
+}
 
 /* .body-info {
 	position: absolute;
@@ -140,7 +122,7 @@ body{
 } */
 
 
-	/* CONTENT___ styles - Start */
+/* CONTENT___ styles - Start */
 .content {
 	width: 100%;
 	height: 60vh;
@@ -150,13 +132,13 @@ body{
 	width: 315px;
 	border: 1px solid lightgray;
 	border-bottom: 3px solid lightgray;
-	border-right: 3px solid lightgray;	
+	border-right: 3px solid lightgray;
 }
 
 .card-image {
 	font-size: 4em;
 	color: #c7c3c3;
 }
-	/* CONTENT___ styles - End */
+/* CONTENT___ styles - End */
 
 /* Index page -Admin styles -End */

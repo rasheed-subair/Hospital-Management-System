@@ -1,0 +1,97 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Sekhmet</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1">
+                <nav class="nav text-white" id="navbar">
+                    <header>
+                        <h4 class="mt-3 px-3">Admin</h4>
+                        <hr>
+                        <div class="mr-5">
+                            <div class="nav-profile mx-2 ">
+                                <p class="px-1"><i class="fas fa-user"></i> Rasheed Subair</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="nav nav-tabs d-block" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link main-nav-link" id="admin-tab" href="/Admin/admin_index" role="tab" aria-selected="true">
+                                <i class="fas fa-home"></i> Dashboard
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" id="doctor-tab" href="/Doctor/AddDoctor" role="tab" aria-selected="false">
+                                <i class="fas fa-user-md"></i> Doctor
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" id="pharmacist-tab" href="/Pharmacist/AddPharmacist" role="tab" aria-selected="false">
+                                <i class="fas fa-capsules"></i> Pharmacist
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" id="patient-tab" href="/Patient/AddPatient" role="tab" aria-selected="false">
+                                <i class="fas fa-user-injured"></i> Patient
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" id="nurse-tab" href="/Nurse/AddNurse" role="tab" aria-selected="false">
+                                <i class="fas fa-user-nurse"></i> Nurse
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" id="lab-tab" href="/LabTech/AddLabTech" role="tab" aria-selected="false">
+                                <i class="fas fa-vial"></i> Laboratorist
+                            </a>
+                        </div>
+                    </header>
+                </nav>
+            </div>
+
+
+            <div class="col-md-11">
+                <main id="main-doc" class="mt-2">
+                    <!-- Main Navigation bar on left side of screen -->
+                    <nav class="alt-nav ">
+
+                        <div class="container text-center text-secondary mb-4">
+                            <h3>Hospital Management System</h3>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6 text-left text-secondary">@ViewBag.Name</div>
+                            <div class="col-6 text-right">
+                                <a href="/Home/Login" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
+                            </div>
+                        </div>
+                        <hr>
+                    </nav>
+
+                    <!-- Content declares the elments of the nav-links created above. They only display when the nav-links are clicked.  -->
+                    <div class="content">
+                        <div class="tab-content" id="nav-tabContent">
+
+                            @RenderBody()
+
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+        </div>
+        
+
+
+        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

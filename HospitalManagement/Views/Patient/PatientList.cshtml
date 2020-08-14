@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<HospitalManagement.Models.Patient>
 
+@{
+    ViewBag.Title = "AddPatient";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -95,104 +100,105 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Occupation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ECName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ECRelationship)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ECPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Allergies)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Medication)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arthritis)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Asthma)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cancer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Depression)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Diabetes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Emphysema)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Epilepsy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Heart_Disease)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HBP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.High_Cholesterol)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hypothyroidism)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Renal_Disease)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stroke)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Thyroid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Alcohol)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Smoke)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Caffeine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Recreational_Drugs)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditPatient", new { id=item.Id }) |
-            @Html.ActionLink("Details", "PatientDetails", new { id=item.Id }) 
-            <div class="text-danger">
-                @Html.ActionLink("Delete", "DeletePatient", new { id = item.Id })
-            </div>
-            
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Occupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ECName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ECRelationship)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ECPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Allergies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arthritis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asthma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cancer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depression)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diabetes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emphysema)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Epilepsy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Heart_Disease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HBP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.High_Cholesterol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hypothyroidism)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Renal_Disease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stroke)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thyroid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alcohol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Smoke)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Caffeine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recreational_Drugs)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditPatient", new { id = item.Id }) |
+                @Html.ActionLink("Details", "PatientDetails", new { id = item.Id })
+                <div class="text-danger">
+                    @Html.ActionLink("Delete", "DeletePatient", new { id = item.Id })
+                </div>
+
+            </td>
+        </tr>
+    }
 
 </table>

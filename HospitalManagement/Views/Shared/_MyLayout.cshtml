@@ -1,15 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Management</title>
-    <link href="~/Content/css/mystylesheet.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
                 <a class="nav-link active" href="#">Homepage</a>
                 <a class="nav-link" href="#">Profile</a>
                 <a class="nav-link" href="/Home/Login">Logout <i class="fas fa-sign-out-alt"></i></a>
-                
+
             </nav>
         </div>
     </header>
@@ -32,11 +33,11 @@
                         @RenderBody()
                     </div>
                 </div>
-                    
+
             </div>
         </div>
     </div>
-    
+
 
     <div class="container bg-light" id="footer">
         <p>&copy; Untitled. All rights reserved. Abdulrasheed Subair</p>

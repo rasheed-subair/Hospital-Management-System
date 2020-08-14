@@ -24,6 +24,7 @@ namespace HospitalManagement
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/mystylesheet.css",
                       "~/Content/site.css"));
         }
     }

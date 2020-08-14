@@ -138,6 +138,7 @@
     <Compile Include="Models\LabTech.cs" />
     <Compile Include="Models\Nurse.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\PatientRecord.cs" />
     <Compile Include="Models\Pharmacist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,8 +150,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\mystylesheet.css" />
+    <Content Include="Content\mystylesheet.css" />
     <Content Include="Content\doctor-index.html" />
     <Content Include="Content\img\blue-green.jpg" />
     <Content Include="Content\img\login-bg.jpg" />
@@ -288,7 +288,7 @@
     <Content Include="Views\Doctor\DoctorList.cshtml" />
     <Content Include="Views\Doctor\EditDoctor.cshtml" />
     <Content Include="Views\Doctor\DeleteDoctor.cshtml" />
-    <Content Include="Views\Doctor\Index.cshtml" />
+    <Content Include="Views\Doctor\DoctorIndex.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -323,6 +323,12 @@
     <Content Include="Views\Patient\EditPatient.cshtml" />
     <Content Include="Views\Patient\DeletePatient.cshtml" />
     <Content Include="Views\Patient\PatientDetails.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_DoctorLayout.cshtml" />
+    <Content Include="Views\Shared\_LabTechLayout.cshtml" />
+    <Content Include="Views\LabTech\LabTechIndex.cshtml" />
+    <Content Include="Views\Shared\_NurseLayout.cshtml" />
+    <Content Include="Views\Nurse\NurseIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

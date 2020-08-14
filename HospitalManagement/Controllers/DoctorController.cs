@@ -11,7 +11,7 @@ namespace HospitalManagement.Controllers
 {
     public class DoctorController : Controller
     {
-        public ActionResult Index()
+        public ActionResult DoctorIndex()
         {
             ViewBag.Name = "Doctor";
             return View();
@@ -45,12 +45,14 @@ namespace HospitalManagement.Controllers
         /*---------------------------------------------*/
         public ActionResult AddDoctor()
         {
+            ViewBag.Name = "Doctor";
             return View();
         }
 
         [HttpPost]
         public ActionResult AddDoctor(Doctor doctor)
         {
+            ViewBag.Name = "Doctor";
             doctor.Id = Guid.NewGuid().ToString();
             doctors.Add(doctor);
             SaveCache();

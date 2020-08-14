@@ -43,12 +43,14 @@ namespace HospitalManagement.Controllers
         /*---------------------------------------------*/
         public ActionResult AddAdmin()
         {
+            ViewBag.Name = "Admin";
             return View();
         }
 
         [HttpPost]
         public ActionResult AddAdmin(Admin admin)
         {
+            ViewBag.Name = "Admin";
             admin.Id = Guid.NewGuid().ToString();
             admins.Add(admin);
             SaveCache();
