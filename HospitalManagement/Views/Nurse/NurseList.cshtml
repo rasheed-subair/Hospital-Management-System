@@ -5,11 +5,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>NurseList</h2>
-
-<p>
-    @Html.ActionLink("Create New", "AddNurse")
-</p>
+<div>
+    <h4 class="mb-3 text-secondary">Nurses</h4>
+    <a href="AddNurse" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> New</a>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -17,12 +16,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Phone)
@@ -42,23 +35,13 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditNurse", new { id=item.Id }) |
-            <div class="text-danger">
-
-            </div>
-            @Html.ActionLink("Delete", "DeleteNurse", new { id=item.Id })
+            @Html.ActionLink("Delete", "DeleteNurse", new { id=item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger btn-sm" })
         </td>
     </tr>
 }

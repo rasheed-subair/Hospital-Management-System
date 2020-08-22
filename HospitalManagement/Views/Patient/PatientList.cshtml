@@ -6,7 +6,7 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="AddPatient" class="btn btn-outline-primary"><i class="far fa-plus-square"></i> New</a>
 </p>
 <table class="table">
     <tr>
@@ -194,7 +194,7 @@
                 @Html.ActionLink("Edit", "EditPatient", new { id = item.Id }) |
                 @Html.ActionLink("Details", "PatientDetails", new { id = item.Id })
                 <div class="text-danger">
-                    @Html.ActionLink("Delete", "DeletePatient", new { id = item.Id })
+                    @Html.ActionLink("Delete", "DeletePatient", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger btn-sm" })
                 </div>
 
             </td>

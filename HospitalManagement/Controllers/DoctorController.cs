@@ -98,6 +98,7 @@ namespace HospitalManagement.Controllers
                 // Update Doctor record
                 doctorToEdit.Name = doctor.Name;
                 doctorToEdit.Email = doctor.Email;
+                doctorToEdit.Username = doctor.Username;
                 doctorToEdit.Password = doctor.Password;
                 doctorToEdit.Phone = doctor.Phone;
                 doctorToEdit.Address = doctor.Address;

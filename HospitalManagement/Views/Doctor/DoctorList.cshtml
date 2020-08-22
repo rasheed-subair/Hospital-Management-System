@@ -5,11 +5,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>DoctorList</h2>
-
-<p>
-    @Html.ActionLink("Create New", "AddDoctor")
-</p>
+<div>
+    <h4 class="mb-3 text-secondary">Doctors</h4>
+    <a href="AddDoctor" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> New</a>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -33,34 +32,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.D_Department)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditDoctor", new { id=item.Id }) |
-            <div class="text-danger">
-                @Html.ActionLink("Delete", "DeleteDoctor", new { id = item.Id })
-            </div>
-            
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.D_Department)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteDoctor", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger btn-sm" })
+            </td>
+        </tr>
+    }
 
 </table>
+ 

@@ -11,8 +11,9 @@ namespace HospitalManagement.Controllers
     public class PharmacistController : Controller
     {
         // GET: Pharmacist
-        public ActionResult Index()
+        public ActionResult PharmacistIndex()
         {
+            ViewBag.Name = "Pharmacist";
             return View();
         }
 

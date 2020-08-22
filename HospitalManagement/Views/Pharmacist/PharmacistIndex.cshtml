@@ -1,25 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "NurseIndex";
-    Layout = "~/Views/Shared/_NurseLayout.cshtml";
+    ViewBag.Title = "PharmacistIndex";
+    Layout = "~/Views/Shared/_PharmacistLayout.cshtml";
 }
-
 
 <div class="my-5">
     <div class="card-deck admin-card my-5">
         <div class="row mb-5">
-            <div class="col-md-6 col-lg-6 mb-4">
-                <div class="card">
-                    <a href="/Doctor/DoctorList" class="text-decoration-none">
-                        <div class="card-body">
-                            <div class="row text-info">
-                                <div class="col-7"> <h4 class="card-text">Nurse</h4></div>
-                                <div class="col-5 card-image"><i class="fas fa-user-md"></i></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
 
             <div class="col-md-6 col-lg-6 mb-4">
                 <div class="card">
@@ -28,6 +15,21 @@
                             <div class="row">
                                 <div class="col-7"> <h4 class="card-text">Patient</h4></div>
                                 <div class="col-5 card-image"><i class="fas fa-user-injured"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+           
+
+            <div class="col-md-6 col-lg-6 mb-4">
+                <div class="card">
+                    <a href="/Patient/PatientList" class="text-decoration-none">
+                        <div class="card-body text-primary">
+                            <div class="row">
+                                <div class="col-7"> <h4 class="card-text">Prescription</h4></div>
+                                <div class="col-5 card-image"><i class="fas fa-pills"></i></div>
                             </div>
                         </div>
                     </a>
@@ -46,6 +48,7 @@
                     </a>
                 </div>
             </div>
+
         </div>
 
     </div>

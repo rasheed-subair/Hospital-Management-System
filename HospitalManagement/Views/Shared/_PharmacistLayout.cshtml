@@ -5,13 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Sekhmet</title>
+    <title>_PharmacistLayout</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
+
+
 
 <body>
     <div class="container-fluid">
@@ -23,12 +24,12 @@
                         <hr>
                         <div class="mr-5">
                             <div class="nav-profile mx-2 ">
-                                <p class="px-1"><i class="fas fa-user"></i> Fisayo Subair</p>
+                                <p class="px-1"><i class="fas fa-user"></i> Shakirat Subair</p>
                             </div>
                         </div>
                         <br>
                         <div class="nav nav-tabs d-block" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link main-nav-link" id="admin-tab" href="/Doctor/DoctorIndex" role="tab" aria-selected="true">
+                            <a class="nav-item nav-link main-nav-link" id="admin-tab" href="/Pharmacist/PharmacistIndex" role="tab" aria-selected="true">
                                 <i class="fas fa-home"></i> Dashboard
                             </a>
                             <a class="nav-item nav-link main-nav-link" id="doctor-tab" href="/Doctor/AddDoctor" role="tab" aria-selected="false">
@@ -37,11 +38,8 @@
                             <a class="nav-item nav-link main-nav-link" id="pharmacist-tab" href="/Pharmacist/AddPharmacist" role="tab" aria-selected="false">
                                 <i class="fas fa-pills"></i> Prescription
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="patient-tab" href="/Patient/AddPatient" role="tab" aria-selected="false">
-                                <i class="fas fa-notes-medical"></i> Report
-                            </a>
-                            
-                            <a class="nav-item nav-link main-nav-link" id="lab-tab" href="/Doctor/EditDoctor" role="tab" aria-selected="false">
+
+                            <a class="nav-item nav-link main-nav-link" id="lab-tab" href="/Pharmacist/EditPharmacist" role="tab" aria-selected="false">
                                 <i class="fas fa-edit"></i> Edit Profile
                             </a>
                         </div>

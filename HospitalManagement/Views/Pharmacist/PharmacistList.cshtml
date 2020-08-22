@@ -5,11 +5,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>PharmacistList</h2>
-
-<p>
-    @Html.ActionLink("Create New", "AddPharmacist")
-</p>
+<div>
+    <h4 class="mb-3 text-secondary">Pharmacists</h4>
+    <a href="AddPharmacist" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> New</a>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -54,8 +53,7 @@
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditPharmacist", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeletePharmacist", new { id=item.Id })
+            @Html.ActionLink("Delete", "DeletePharmacist", new { id=item.Id }.id, htmlAttributes : new { @class = "btn btn-outline-danger btn-sm" } )
         </td>
     </tr>
 }
