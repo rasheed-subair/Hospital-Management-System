@@ -1,41 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace HospitalManagement.Models
 {
     public class Patient
     {
-        /*      General Details       */
-        public string Id { get; set; }
-        public string Name { get; set; }
+        /********************************/
+        /*       General Details        */
+        /********************************/
+        [Key]
+        public string PatientId { get; set; }
+
+        [Required(ErrorMessage = "First Name is Required")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last Name is Required")]
+        public string LastName { get; set; }
+
         public string Phone { get; set; }
+
+        [EmailAddress(ErrorMessage = "Invalid Email.")]
         public string Email { get; set; }
         public string Address { get; set; }
+
         [DisplayName("Gender")]
         public Gender PatientGender { get; set; }
         public DateTime DOB { get; set; }
         public string Occupation { get; set; }
+
         [DisplayName("Marital Status")]
         public MaritalStatus Marital_Status { get; set; }
 
+        public string Photograph { get; set; }
+
+        /********************************/
         /*      Emergency Contact       */
+        /********************************/
         [DisplayName("Full Name")]
         public string ECName { get; set; }
+
         [DisplayName("Relationship")]
         public string ECRelationship { get; set; }
+
         [DisplayName("Phone")]
         public string ECPhone { get; set; }
 
-        /*      Medical History       */
+        /********************************/
+        /*        Medical History       */
+        /********************************/
 
-        // Allergies to be listed in a textbox
+        // Allergies to be listed in a textarea
         public string Allergies { get; set; }
-        // Medication to be listed in a textbox
+        // Medication to be listed in a textarea
         public string Medication { get; set; }
 
         //Medical History
@@ -59,6 +81,9 @@ namespace HospitalManagement.Models
         public bool Caffeine { get; set; }
         [DisplayName("Recreational Drugs")]
         public bool Recreational_Drugs { get; set; }
+
+        //This collection holds the list for the one-to-many relationship between Patients and their "many" Records
+        public virtual ICollection<PatientRecord> PatientRecord { get; set; }
     }
 
     public enum Gender
