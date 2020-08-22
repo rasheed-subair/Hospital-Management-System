@@ -131,12 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LabTechController.cs" />
-    <Compile Include="Controllers\NurseController.cs" />
-    <Compile Include="Controllers\PatientController.cs" />
-    <Compile Include="Controllers\PharmacistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -311,11 +306,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Admin\admin_index.cshtml" />
-    <Content Include="Views\Admin\AdminList.cshtml" />
-    <Content Include="Views\Admin\AddAdmin.cshtml" />
-    <Content Include="Views\Admin\EditAdmin.cshtml" />
-    <Content Include="Views\Admin\DeleteAdmin.cshtml" />
     <Content Include="Views\LabTech\AddLabTech.cshtml" />
     <Content Include="Views\LabTech\LabTechList.cshtml" />
     <Content Include="Views\LabTech\EditLabTech.cshtml" />
@@ -341,6 +331,11 @@
     <Content Include="Views\Nurse\NurseIndex.cshtml" />
     <Content Include="Views\Pharmacist\PharmacistIndex.cshtml" />
     <Content Include="Views\Shared\_PharmacistLayout.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

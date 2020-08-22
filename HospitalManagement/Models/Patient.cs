@@ -66,12 +66,14 @@ namespace HospitalManagement.Models
         public bool Cancer { get; set; }
         public bool Depression { get; set; }
         public bool Diabetes { get; set; }
-        public bool Emphysema { get; set; }
         public bool Epilepsy { get; set; }
         public bool Heart_Disease { get; set; }
+
+        [DisplayName("High Blood Pressure")]
         public bool HBP { get; set; }
+
+        [DisplayName("High Cholesterol")]
         public bool High_Cholesterol { get; set; }
-        public bool Hypothyroidism { get; set; }
         public bool Renal_Disease { get; set; }
         public bool Stroke { get; set; }
         public bool Thyroid { get; set; }
@@ -97,6 +99,7 @@ namespace HospitalManagement.Models
         Married,
         Single,
         Divorced,
-        Widowed
+        Widowed,
+        Other
     }
 }

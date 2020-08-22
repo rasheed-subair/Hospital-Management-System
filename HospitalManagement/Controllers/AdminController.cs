@@ -1,140 +1,127 @@
-﻿using HospitalManagement.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HospitalManagement.Models;
-using System.Runtime.Caching;
 
 namespace HospitalManagement.Controllers
 {
     public class AdminController : Controller
     {
+        private HospitalContext db = new HospitalContext();
+
         // GET: Admin
-        public ActionResult admin_index()
+        public ActionResult Index()
         {
-            ViewBag.Name = "Admin";
-            return View();
+            return View(db.AdminTable.ToList());
         }
-        /*---------------------------------------------*/
-        /*-         Create and save cache             -*/
-        /*---------------------------------------------*/
-        ObjectCache cache = MemoryCache.Default;
-        List<Admin> admins;
 
-        public AdminController()
+        // GET: Admin/Details/5
+        public ActionResult Details(int? id)
         {
-            admins = cache["admins"] as List<Admin>;
-
-            if (admins == null)
+            if (id == null)
             {
-                admins = new List<Admin>();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            Admin admin = db.AdminTable.Find(id);
+            if (admin == null)
+            {
+                return HttpNotFound();
+            }
+            return View(admin);
         }
 
-        public void SaveCache()
+        // GET: Admin/Create
+        public ActionResult Create()
         {
-            cache["admins"] = admins;
-        }
-
-        /*---------------------------------------------*/
-        /*-         Add Information for Admin        -*/
-        /*---------------------------------------------*/
-        public ActionResult AddAdmin()
-        {
-            ViewBag.Name = "Admin";
             return View();
         }
 
+        // POST: Admin/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult AddAdmin(Admin admin)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "AdminId,Name,Email,Username,Password,ConfirmPassword,Phone,Address")] Admin admin)
         {
-            ViewBag.Name = "Admin";
-            admin.Id = Guid.NewGuid().ToString();
-            admins.Add(admin);
-            SaveCache();
+            if (ModelState.IsValid)
+            {
+                db.AdminTable.Add(admin);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("AdminList");
+            return View(admin);
         }
 
-        /*---------------------------------------------*/
-        /*-              View Admin List             -*/
-        /*---------------------------------------------*/
-        public ActionResult AdminList()
+        // GET: Admin/Edit/5
+        public ActionResult Edit(int? id)
         {
-            return View(admins);
-        }
-
-        /*---------------------------------------------*/
-        /*-         Edit Admin Information           -*/
-        /*---------------------------------------------*/
-        public ActionResult EditAdmin(string id)
-        {
-            // Search memory for Admin with unique id and assign to the variable then display "if found"
-            Admin admin = admins.FirstOrDefault(s => s.Id == id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Admin admin = db.AdminTable.Find(id);
             if (admin == null)
             {
                 return HttpNotFound();
             }
-            else
-            {
-                return View(admin);
-            }
+            return View(admin);
         }
 
+        // POST: Admin/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult EditAdmin(Admin admin, string id)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "AdminId,Name,Email,Username,Password,ConfirmPassword,Phone,Address")] Admin admin)
         {
-            Admin adminToEdit = admins.FirstOrDefault(s => s.Id == id);
-            if (adminToEdit == null)
+            if (ModelState.IsValid)
             {
-                return HttpNotFound();
+                db.Entry(admin).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            else
-            {
-                // Update Admin record
-                adminToEdit.Name = admin.Name;
-                adminToEdit.Email = admin.Email;
-                adminToEdit.Password = admin.Password;
-                adminToEdit.Phone = admin.Phone;
-                adminToEdit.Address = admin.Address;
-
-                SaveCache();
-                return RedirectToAction("AdminList");
-            }
+            return View(admin);
         }
 
-        /*---------------------------------------------*/
-        /*-         Delete Admin Information         -*/
-        /*---------------------------------------------*/
-        public ActionResult DeleteAdmin(string id)
+        // GET: Admin/Delete/5
+        public ActionResult Delete(int? id)
         {
-            Admin admin = admins.FirstOrDefault(s => s.Id == id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Admin admin = db.AdminTable.Find(id);
             if (admin == null)
             {
                 return HttpNotFound();
             }
-            else
-            {
-                return View(admin);
-            }
+            return View(admin);
         }
 
-        [HttpPost]
-        [ActionName("DeleteAdmin")]
-        public ActionResult ConfirmDeleteAdmin(string id)
+        // POST: Admin/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            Admin admin = admins.FirstOrDefault(s => s.Id == id);
-            if (admin == null)
+            Admin admin = db.AdminTable.Find(id);
+            db.AdminTable.Remove(admin);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return HttpNotFound();
+                db.Dispose();
             }
-            else
-            {
-                admins.Remove(admin);
-                return RedirectToAction("AdminList");
-            }
+            base.Dispose(disposing);
         }
     }
 }

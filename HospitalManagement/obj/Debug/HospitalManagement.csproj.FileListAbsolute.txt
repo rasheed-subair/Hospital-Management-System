@@ -77,3 +77,7 @@ C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\obj\Debug\Hospita
 C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\obj\Debug\HospitalManagement.csproj.CopyComplete
 C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\obj\Debug\HospitalManagement.dll
 C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\obj\Debug\HospitalManagement.pdb
+C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\bin\EntityFramework.dll
+C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\bin\EntityFramework.SqlServer.dll
+C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\bin\EntityFramework.xml
+C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\bin\EntityFramework.SqlServer.xml
