@@ -33,7 +33,7 @@ namespace HospitalManagement.Models
         [Required(ErrorMessage = "Phone number is Required")]
         public string Phone { get; set; }
         public string Address { get; set; }
-        public string D_Department { get; set; }
+        public Department Department { get; set; }
 
         //Since each patient record is usually related to a doctor, the list is required here as well
         public virtual ICollection<PatientRecord> PatientRecord { get; set; }

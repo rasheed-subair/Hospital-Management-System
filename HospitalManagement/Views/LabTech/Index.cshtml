@@ -1,14 +1,16 @@
-﻿@model IEnumerable<HospitalManagement.Models.Pharmacist>
+﻿@model IEnumerable<HospitalManagement.Models.LabTech>
 
 @{
-    ViewBag.Title = "PharmacistList";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div>
-    <h4 class="mb-3 text-secondary">Pharmacists</h4>
-    <a href="AddPharmacist" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> New</a>
+    <a href="/LabTech/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add Laboratorist</a>
+    <hr />
+    <h4 class="mb-3 text-secondary">Laboratory Staff</h4>
 </div>
+
 <table class="table">
     <tr>
         <th>
@@ -22,6 +24,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfirmPassword)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Phone)
@@ -47,13 +52,18 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.ConfirmPassword)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.ActionLink("Delete", "DeletePharmacist", new { id=item.Id }.id, htmlAttributes : new { @class = "btn btn-outline-danger btn-sm" } )
+            @Html.ActionLink("Edit", "Edit", new { id=item.LabTechId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LabTechId }, new { @class = "btn btn-primary btn-sm" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LabTechId }, new { @class = "btn btn-danger btn-sm" })
         </td>
     </tr>
 }

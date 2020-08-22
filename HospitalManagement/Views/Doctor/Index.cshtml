@@ -1,14 +1,16 @@
-﻿@model IEnumerable<HospitalManagement.Models.LabTech>
+﻿@model IEnumerable<HospitalManagement.Models.Doctor>
 
 @{
-    ViewBag.Title = "LabTechList";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DoctorLayout.cshtml";
 }
 
 <div>
-    <h4 class="mb-3 text-secondary">Laboratorists</h4>
-    <a href="AddLabTech" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> New</a>
+    <a href="/Doctor/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add Admin</a>
+    <hr />
+    <h4 class="mb-3 text-secondary">Doctors</h4>
 </div>
+
 <table class="table">
     <tr>
         <th>
@@ -24,10 +26,16 @@
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.ConfirmPassword)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Phone)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
         </th>
         <th></th>
     </tr>
@@ -47,13 +55,21 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.ConfirmPassword)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-                @Html.ActionLink("Delete", "DeleteLabTech", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger btn-sm" })
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DoctorId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DoctorId }, new { @class = "btn btn-primary btn-sm" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DoctorId }, new { @class = "btn btn-danger btn-sm" })
         </td>
     </tr>
 }

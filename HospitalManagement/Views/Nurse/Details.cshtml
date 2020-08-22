@@ -1,13 +1,14 @@
-﻿@model HospitalManagement.Models.Admin
+﻿@model HospitalManagement.Models.Nurse
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NurseLayout.cshtml";
 }
 
 <h2>Details</h2>
 
 <div>
+    <h4>Nurse</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -35,6 +36,22 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmPassword)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Phone)
         </dt>
 
@@ -53,8 +70,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AdminId })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NurseId }) |
     <div class="container mx-3">
-        <a href="Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
+        <a href="/Nurse/Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
     </div>
 </p>

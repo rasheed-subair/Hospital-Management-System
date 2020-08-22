@@ -18,9 +18,11 @@ namespace HospitalManagement.Models
         public string PatientId { get; set; }
 
         [Required(ErrorMessage = "First Name is Required")]
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last Name is Required")]
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
 
         public string Phone { get; set; }
@@ -31,6 +33,8 @@ namespace HospitalManagement.Models
 
         [DisplayName("Gender")]
         public Gender PatientGender { get; set; }
+
+        [DisplayName("Date of Birth")]
         public DateTime DOB { get; set; }
         public string Occupation { get; set; }
 
@@ -67,6 +71,8 @@ namespace HospitalManagement.Models
         public bool Depression { get; set; }
         public bool Diabetes { get; set; }
         public bool Epilepsy { get; set; }
+
+        [DisplayName("Heart Disease")]
         public bool Heart_Disease { get; set; }
 
         [DisplayName("High Blood Pressure")]
@@ -74,6 +80,8 @@ namespace HospitalManagement.Models
 
         [DisplayName("High Cholesterol")]
         public bool High_Cholesterol { get; set; }
+
+        [DisplayName("Renal Disease")]
         public bool Renal_Disease { get; set; }
         public bool Stroke { get; set; }
         public bool Thyroid { get; set; }
