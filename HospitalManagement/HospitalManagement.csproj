@@ -132,11 +132,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountantController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LabTechController.cs" />
     <Compile Include="Controllers\NurseController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\PatientRecordController.cs" />
     <Compile Include="Controllers\PharmacistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -352,6 +354,15 @@
     <Content Include="Views\Pharmacist\Details.cshtml" />
     <Content Include="Views\Pharmacist\Edit.cshtml" />
     <Content Include="Views\Pharmacist\Index.cshtml" />
+    <Content Include="Views\Appointment\Create.cshtml" />
+    <Content Include="Views\Appointment\Delete.cshtml" />
+    <Content Include="Views\Appointment\Details.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\PatientRecord\Create.cshtml" />
+    <Content Include="Views\PatientRecord\Delete.cshtml" />
+    <Content Include="Views\PatientRecord\Details.cshtml" />
+    <Content Include="Views\PatientRecord\Edit.cshtml" />
+    <Content Include="Views\PatientRecord\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

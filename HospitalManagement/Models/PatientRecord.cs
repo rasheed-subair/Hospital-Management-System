@@ -22,7 +22,10 @@ namespace HospitalManagement.Models
         public int Temperature { get; set; }
 
         [DisplayName("Patient Complaint")]
+        [DataType(DataType.MultilineText)]
         public string Complaint { get; set; }
+
+        public string TimIn { get; set; }
 
         [DisplayName("Total cost - Admitted")]
         public int AdmissionCost { get; set; }
@@ -32,11 +35,14 @@ namespace HospitalManagement.Models
         /********************************/
 
         [DisplayName("Doctor Comments")]
+        [DataType(DataType.MultilineText)]
         public string CommentsDoctor { get; set; }
-        
+
+        [DataType(DataType.MultilineText)]
         public string Prescription { get; set; }
 
         [DisplayName("Test(s) Required")]
+        [DataType(DataType.MultilineText)]
         public string TestRequired { get; set; }
 
         [DisplayName("To Be Admitted")]
@@ -46,6 +52,7 @@ namespace HospitalManagement.Models
         /*       Edited By Nurse        */
         /********************************/
         [DisplayName("Ward and Bed")]
+        [DataType(DataType.MultilineText)]
         public string WardAndBed { get; set; }
         [DisplayName("Is Admitted")]
         public bool IsAdmitted { get; set; }
@@ -66,7 +73,9 @@ namespace HospitalManagement.Models
         /********************************/
         /*      Edited By Labtech       */
         /********************************/
+        [DataType(DataType.MultilineText)]
         public string TestResult { get; set; }
+
 
         [DisplayName("Price- Lab Test")]
         public int PriceTest { get; set; }

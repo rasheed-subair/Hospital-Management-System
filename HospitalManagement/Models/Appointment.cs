@@ -22,6 +22,17 @@ namespace HospitalManagement.Models
         public string Email { get; set; }
 
         [DisplayName("Appointment Details")]
+        [DataType(DataType.MultilineText)]
         public string Details { get; set; }
+
+        [DisplayName("Appointment Day")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public string AppointmentDay { get; set; }
+
+        [DisplayName("Appointment Time")]
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
+        public string AppointmentTime { get; set; }
     }
 }

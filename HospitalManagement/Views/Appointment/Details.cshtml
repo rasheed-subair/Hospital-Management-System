@@ -1,0 +1,67 @@
+﻿@model HospitalManagement.Models.Appointment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div class="container mx-3">
+        <a href="/Appointment/Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
+    </div>
+</p>

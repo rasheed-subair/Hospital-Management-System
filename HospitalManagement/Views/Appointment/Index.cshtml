@@ -1,0 +1,62 @@
+﻿@model IEnumerable<HospitalManagement.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4 class="mb-3 text-secondary">Patient Appointments</h4>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppointmentTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppointmentTime)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.AppointmentId }, new { @class = "btn btn-primary btn-sm" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AppointmentId }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>
