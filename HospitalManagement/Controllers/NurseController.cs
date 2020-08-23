@@ -14,18 +14,25 @@ namespace HospitalManagement.Controllers
     {
         private HospitalContext db = new HospitalContext();
 
-        // GET: Nurse
+        /***************************************/
+        /*               Nurse List            */
+        /***************************************/
         public ActionResult Index()
         {
             return View(db.NurseTable.ToList());
         }
 
+        /***************************************/
+        /*           Nurse Homepage            */
+        /***************************************/
         public ActionResult Homepage()
         {
             return View();
         }
 
-        // GET: Nurse/Details/5
+        /***************************************/
+        /*          View Nurse Details         */
+        /***************************************/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,15 +47,15 @@ namespace HospitalManagement.Controllers
             return View(nurse);
         }
 
-        // GET: Nurse/Create
+        /***************************************/
+        /*        Create New Nurse - Get       */
+        /***************************************/
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Nurse/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "NurseId,Name,Email,Username,Password,ConfirmPassword,Phone,Address")] Nurse nurse)
@@ -63,7 +70,9 @@ namespace HospitalManagement.Controllers
             return View(nurse);
         }
 
-        // GET: Nurse/Edit/5
+        /***************************************/
+        /*         Edit Nurse Detais           */
+        /***************************************/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,8 +88,6 @@ namespace HospitalManagement.Controllers
         }
 
         // POST: Nurse/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "NurseId,Name,Email,Username,Password,ConfirmPassword,Phone,Address")] Nurse nurse)
@@ -94,7 +101,9 @@ namespace HospitalManagement.Controllers
             return View(nurse);
         }
 
-        // GET: Nurse/Delete/5
+        /***************************************/
+        /*            Delete Nurse             */
+        /***************************************/
         public ActionResult Delete(int? id)
         {
             if (id == null)

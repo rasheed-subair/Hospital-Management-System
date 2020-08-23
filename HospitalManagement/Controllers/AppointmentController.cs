@@ -14,18 +14,17 @@ namespace HospitalManagement.Controllers
     {
         private HospitalContext db = new HospitalContext();
 
-        // GET: Appointment
+        /***************************************/
+        /*          Appointment List           */
+        /***************************************/
         public ActionResult Index()
         {
             return View(db.AppointmentTable.ToList());
         }
 
-        public ActionResult Homepage()
-        {
-            return View();
-        }
-
-        // GET: Appointment/Details/5
+        /***************************************/
+        /*      View Appointment Details       */
+        /***************************************/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,7 +39,9 @@ namespace HospitalManagement.Controllers
             return View(appointment);
         }
 
-        // GET: Appointment/Create
+        /***************************************/
+        /*        Create New Appointment       */
+        /***************************************/
         public ActionResult Create()
         {
             return View();
@@ -63,7 +64,9 @@ namespace HospitalManagement.Controllers
             return View(appointment);
         }
 
-        // GET: Appointment/Delete/5
+        /***************************************/
+        /*     Delete Appointment Details      */
+        /***************************************/
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -14,18 +14,25 @@ namespace HospitalManagement.Controllers
     {
         private HospitalContext db = new HospitalContext();
 
-        // GET: LabTech
+        /***************************************/
+        /*            LabTech List             */
+        /***************************************/
         public ActionResult Index()
         {
             return View(db.LabTechTable.ToList());
         }
 
+        /***************************************/
+        /*           LabTech Homepage          */
+        /***************************************/
         public ActionResult Homepage()
         {
             return View();
         }
 
-        // GET: LabTech/Details/5
+        /***************************************/
+        /*        View LabTech Details         */
+        /***************************************/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,15 +47,15 @@ namespace HospitalManagement.Controllers
             return View(labTech);
         }
 
-        // GET: LabTech/Create
+        /***************************************/
+        /*      Create New LabTech - Get       */
+        /***************************************/
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: LabTech/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LabTechId,Name,Email,Username,Password,ConfirmPassword,Phone,Address")] LabTech labTech)
@@ -63,7 +70,9 @@ namespace HospitalManagement.Controllers
             return View(labTech);
         }
 
-        // GET: LabTech/Edit/5
+        /***************************************/
+        /*        Edit LabTech Detais          */
+        /***************************************/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,8 +88,6 @@ namespace HospitalManagement.Controllers
         }
 
         // POST: LabTech/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "LabTechId,Name,Email,Username,Password,ConfirmPassword,Phone,Address")] LabTech labTech)
@@ -94,7 +101,9 @@ namespace HospitalManagement.Controllers
             return View(labTech);
         }
 
-        // GET: LabTech/Delete/5
+        /***************************************/
+        /*            Delete LabTech           */
+        /***************************************/
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -15,25 +15,7 @@ namespace HospitalManagement.Controllers
         private HospitalContext db = new HospitalContext();
 
         /***************************************/
-        /*      Patient List - for Admin       */
-        /***************************************/
-        public ActionResult Index()
-        {
-            var patientRecordTable = db.PatientRecordTable.Include(p => p.Doctor).Include(p => p.Patient);
-            return View(patientRecordTable.ToList());
-        }
-
-        /***************************************/
-        /*      Patient List - for Doctor       */
-        /***************************************/
-        public ActionResult Index()
-        {
-            var patientRecordTable = db.PatientRecordTable.Include(p => p.Doctor).Include(p => p.Patient);
-            return View(patientRecordTable.ToList());
-        }
-
-        /***************************************/
-        /*      Patient List - for Nurse       */
+        /*        Patient Record List          */
         /***************************************/
         public ActionResult Index()
         {
@@ -42,8 +24,9 @@ namespace HospitalManagement.Controllers
         }
 
 
-
-        // GET: PatientRecord/Details/5
+        /***************************************/
+        /*        View Patient Record          */
+        /***************************************/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -58,7 +41,9 @@ namespace HospitalManagement.Controllers
             return View(patientRecord);
         }
 
-        // GET: PatientRecord/Create
+        /***************************************/
+        /*      Create New Patient Record      */
+        /***************************************/
         public ActionResult Create()
         {
             ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name");
@@ -67,8 +52,6 @@ namespace HospitalManagement.Controllers
         }
 
         // POST: PatientRecord/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,Paid,PatientId,DoctorId")] PatientRecord patientRecord)
@@ -85,7 +68,9 @@ namespace HospitalManagement.Controllers
             return View(patientRecord);
         }
 
-        // GET: PatientRecord/Edit/5
+        /***************************************/
+        /*        Edit Patient Record          */
+        /***************************************/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -102,9 +87,6 @@ namespace HospitalManagement.Controllers
             return View(patientRecord);
         }
 
-        // POST: PatientRecord/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,Paid,PatientId,DoctorId")] PatientRecord patientRecord)
@@ -120,7 +102,9 @@ namespace HospitalManagement.Controllers
             return View(patientRecord);
         }
 
-        // GET: PatientRecord/Delete/5
+        /***************************************/
+        /*        Delete Patient Record        */
+        /***************************************/
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -14,14 +14,18 @@ namespace HospitalManagement.Controllers
     {
         private HospitalContext db = new HospitalContext();
 
-        // GET: Patient
+        /***************************************/
+        /*             Patient List            */
+        /***************************************/
         public ActionResult Index()
         {
             return View(db.PatientTable.ToList());
         }
 
 
-        // GET: Patient/Details/5
+        /***************************************/
+        /*        View Patient Details         */
+        /***************************************/
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -36,15 +40,15 @@ namespace HospitalManagement.Controllers
             return View(patient);
         }
 
-        // GET: Patient/Create
+        /***************************************/
+        /*      Create New Patient - Get       */
+        /***************************************/
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Patient/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PatientId,FirstName,LastName,Phone,Email,Address,PatientGender,DOB,Occupation,Marital_Status,Photograph,ECName,ECRelationship,ECPhone,Allergies,Medication,Arthritis,Asthma,Cancer,Depression,Diabetes,Epilepsy,Heart_Disease,HBP,High_Cholesterol,Renal_Disease,Stroke,Thyroid,Alcohol,Smoke,Caffeine,Recreational_Drugs")] Patient patient)
@@ -59,7 +63,9 @@ namespace HospitalManagement.Controllers
             return View(patient);
         }
 
-        // GET: Patient/Edit/5
+        /***************************************/
+        /*        Edit Patient Detais          */
+        /***************************************/
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -75,8 +81,6 @@ namespace HospitalManagement.Controllers
         }
 
         // POST: Patient/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PatientId,FirstName,LastName,Phone,Email,Address,PatientGender,DOB,Occupation,Marital_Status,Photograph,ECName,ECRelationship,ECPhone,Allergies,Medication,Arthritis,Asthma,Cancer,Depression,Diabetes,Epilepsy,Heart_Disease,HBP,High_Cholesterol,Renal_Disease,Stroke,Thyroid,Alcohol,Smoke,Caffeine,Recreational_Drugs")] Patient patient)
@@ -90,7 +94,9 @@ namespace HospitalManagement.Controllers
             return View(patient);
         }
 
-        // GET: Patient/Delete/5
+        /***************************************/
+        /*            Delete Patient           */
+        /***************************************/
         public ActionResult Delete(string id)
         {
             if (id == null)

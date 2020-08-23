@@ -14,18 +14,25 @@ namespace HospitalManagement.Controllers
     {
         private HospitalContext db = new HospitalContext();
 
-        // GET: Accountant
+        /***************************************/
+        /*          Accountant List            */
+        /***************************************/
         public ActionResult Index()
         {
             return View(db.AccountantTable.ToList());
         }
 
+        /***************************************/
+        /*         Accountant Homepage         */
+        /***************************************/
         public ActionResult Homepage()
         {
             return View();
         }
 
-        // GET: Accountant/Details/5
+        /***************************************/
+        /*      View Accountant Details        */
+        /***************************************/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,15 +47,15 @@ namespace HospitalManagement.Controllers
             return View(accountant);
         }
 
-        // GET: Accountant/Create
+        /***************************************/
+        /*        Create New Accountant        */
+        /***************************************/
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Accountant/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AccountantId,Name,Email,Username,Password,ConfirmPassword,Phone,Address")] Accountant accountant)
@@ -63,7 +70,9 @@ namespace HospitalManagement.Controllers
             return View(accountant);
         }
 
-        // GET: Accountant/Edit/5
+        /***************************************/
+        /*      Edit Accountant Details        */
+        /***************************************/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,8 +88,6 @@ namespace HospitalManagement.Controllers
         }
 
         // POST: Accountant/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "AccountantId,Name,Email,Username,Password,ConfirmPassword,Phone,Address")] Accountant accountant)
@@ -94,7 +101,9 @@ namespace HospitalManagement.Controllers
             return View(accountant);
         }
 
-        // GET: Accountant/Delete/5
+        /***************************************/
+        /*      Delete Pharmacist Details      */
+        /***************************************/
         public ActionResult Delete(int? id)
         {
             if (id == null)
