@@ -14,12 +14,34 @@ namespace HospitalManagement.Controllers
     {
         private HospitalContext db = new HospitalContext();
 
-        // GET: PatientRecord
+        /***************************************/
+        /*      Patient List - for Admin       */
+        /***************************************/
         public ActionResult Index()
         {
             var patientRecordTable = db.PatientRecordTable.Include(p => p.Doctor).Include(p => p.Patient);
             return View(patientRecordTable.ToList());
         }
+
+        /***************************************/
+        /*      Patient List - for Doctor       */
+        /***************************************/
+        public ActionResult Index()
+        {
+            var patientRecordTable = db.PatientRecordTable.Include(p => p.Doctor).Include(p => p.Patient);
+            return View(patientRecordTable.ToList());
+        }
+
+        /***************************************/
+        /*      Patient List - for Nurse       */
+        /***************************************/
+        public ActionResult Index()
+        {
+            var patientRecordTable = db.PatientRecordTable.Include(p => p.Doctor).Include(p => p.Patient);
+            return View(patientRecordTable.ToList());
+        }
+
+
 
         // GET: PatientRecord/Details/5
         public ActionResult Details(int? id)

@@ -31,25 +31,31 @@
                         </div>
                         <br>
                         <div class="nav nav-tabs d-block" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link main-nav-link" id="admin-tab" href="/Admin/admin_index" role="tab" aria-selected="true">
+                            <a class="nav-item nav-link main-nav-link" href="/Admin/Index">
                                 <i class="fas fa-home"></i> Dashboard
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="doctor-tab" href="/Doctor/DoctorList" role="tab" aria-selected="false">
+                            <a class="nav-item nav-link main-nav-link" href="/Doctor/Index">
                                 <i class="fas fa-user-md"></i> Doctor
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="pharmacist-tab" href="/Pharmacist/PharmacistList" role="tab" aria-selected="false">
+                            <a class="nav-item nav-link main-nav-link" href="/Pharmacist/Index">
                                 <i class="fas fa-capsules"></i> Pharmacist
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="patient-tab" href="/Patient/PatientList" role="tab" aria-selected="false">
+                            <a class="nav-item nav-link main-nav-link" href="/Patient/Index">
                                 <i class="fas fa-user-injured"></i> Patient
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="nurse-tab" href="/Nurse/NurseList" role="tab" aria-selected="false">
+                            <a class="nav-item nav-link main-nav-link" href="/Patient/Index">
+                                <i class="fas fa-notes-medical"></i> Patient Records
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" href="/Appointment/Index">
+                                <i class="far fa-calendar-check"></i> Patient Appointments
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" href="/Nurse/Index">
                                 <i class="fas fa-user-nurse"></i> Nurse
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="lab-tab" href="/LabTech/LabTechList" role="tab" aria-selected="false">
+                            <a class="nav-item nav-link main-nav-link" href="/LabTech/Index">
                                 <i class="fas fa-vial"></i> Laboratorist
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="lab-tab" href="/Admin/EditAdmin" role="tab" aria-selected="false">
+                            <a class="nav-item nav-link main-nav-link" href="/Admin/Edit">
                                 <i class="fas fa-edit"></i> Edit Profile
                             </a>
                         </div>
@@ -60,7 +66,7 @@
 
             <div class="col-md-11">
                 <main id="main-doc" class="mt-2">
-                    <!-- Main Navigation bar on left side of screen -->
+                    <!--Navigation bar on top side of screen -->
                     <nav class="alt-nav ">
 
                         <div class="container text-center text-secondary mb-4">
@@ -69,15 +75,14 @@
                         <div class="row mb-3">
                             <div class="col-6 text-left text-secondary">@ViewBag.Name</div>
                             <div class="col-6 text-right">
-                                <a href="/Home/Login" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
+                                <a href="/Admin/Logout" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
                             </div>
                         </div>
                         <hr>
                     </nav>
 
-                    <!-- Content declares the elments of the nav-links created above. They only display when the nav-links are clicked.  -->
                     <div class="content">
-                        <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-content">
 
                             @RenderBody()
 

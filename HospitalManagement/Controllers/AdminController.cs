@@ -20,6 +20,13 @@ namespace HospitalManagement.Controllers
             return View(db.AdminTable.ToList());
         }
 
+
+        public ActionResult Homepage()
+        {
+            return View();
+        }
+
+
         // GET: Admin/Details/5
         public ActionResult Details(int? id)
         {

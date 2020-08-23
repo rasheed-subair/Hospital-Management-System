@@ -1,13 +1,9 @@
-﻿@{
-    Layout = null;
-}
+﻿<!DOCTYPE html>
 
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Sekhmet</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -23,25 +19,19 @@
                         <hr>
                         <div class="mr-5">
                             <div class="nav-profile mx-2 ">
-                                <p class="px-1"><i class="fas fa-user"></i> Fisayo Subair</p>
+                                <p class="px-1"><i class="fas fa-user"></i> Shalewa Subair</p>
                             </div>
                         </div>
                         <br>
-                        <div class="nav nav-tabs d-block" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link main-nav-link" href="/Doctor/Homepage">
+                        <div class="nav nav-tabs d-block" id="nav-tab">
+                            <a class="nav-item nav-link main-nav-link" href="/Accountant/index" role="tab" aria-selected="true">
                                 <i class="fas fa-home"></i> Dashboard
                             </a>
-                            <a class="nav-item nav-link main-nav-link" href="/Appointment/Index">
-                                <i class="far fa-calendar-alt"></i> Appointment
+                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/index" role="tab" aria-selected="false">
+                                <i class="far fa-user-injured"></i> Patient
                             </a>
-                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/AddPharmacist">
-                                <i class="fas fa-pills"></i> Prescription
-                            </a>
-                            <a class="nav-item nav-link main-nav-link" href="/Patient/AddPatient">
-                                <i class="fas fa-notes-medical"></i> Report
-                            </a>
-                            
-                            <a class="nav-item nav-link main-nav-link" href="/Doctor/EditDoctor">
+
+                            <a class="nav-item nav-link main-nav-link" href="/Accountant/Edit" role="tab" aria-selected="false">
                                 <i class="fas fa-edit"></i> Edit Profile
                             </a>
                         </div>
@@ -61,7 +51,7 @@
                         <div class="row mb-3">
                             <div class="col-6 text-left text-secondary">@ViewBag.Name</div>
                             <div class="col-6 text-right">
-                                <a href="/Home/Login" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
+                                <a href="/Accountant/Logout" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
                             </div>
                         </div>
                         <hr>
@@ -80,9 +70,5 @@
 
         </div>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

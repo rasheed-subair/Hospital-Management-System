@@ -20,6 +20,11 @@ namespace HospitalManagement.Controllers
             return View(db.LabTechTable.ToList());
         }
 
+        public ActionResult Homepage()
+        {
+            return View();
+        }
+
         // GET: LabTech/Details/5
         public ActionResult Details(int? id)
         {

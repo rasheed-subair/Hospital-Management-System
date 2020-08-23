@@ -363,6 +363,13 @@
     <Content Include="Views\PatientRecord\Details.cshtml" />
     <Content Include="Views\PatientRecord\Edit.cshtml" />
     <Content Include="Views\PatientRecord\Index.cshtml" />
+    <Content Include="Views\Admin\Homepage.cshtml" />
+    <Content Include="Views\Accountant\Homepage.cshtml" />
+    <Content Include="Views\Doctor\Homepage.cshtml" />
+    <Content Include="Views\Shared\_AccountantLayouts.cshtml" />
+    <Content Include="Views\LabTech\Homepage.cshtml" />
+    <Content Include="Views\Nurse\Homepage.cshtml" />
+    <Content Include="Views\Pharmacist\Homepage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
