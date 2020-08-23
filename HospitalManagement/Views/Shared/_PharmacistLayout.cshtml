@@ -29,19 +29,16 @@
                         </div>
                         <br>
                         <div class="nav nav-tabs d-block" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link main-nav-link" id="admin-tab" href="/Pharmacist/Homepage" role="tab" aria-selected="true">
+                            <a class="nav-item nav-link main-nav-link" href="/Pharmacist/Homepage">
                                 <i class="fas fa-home"></i> Dashboard
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="doctor-tab" href="/Appointment/Index" role="tab" aria-selected="false">
+                            <a class="nav-item nav-link main-nav-link" href="/Appointment/Index">
                                 <i class="far fa-calendar-alt"></i> Appointment
                             </a>
-                            <a class="nav-item nav-link main-nav-link" id="pharmacist-tab" href="/PatientRecord/Index" role="tab" aria-selected="false">
+                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/Index">
                                 <i class="fas fa-pills"></i> Prescription
                             </a>
-
-                            <a class="nav-item nav-link main-nav-link" id="lab-tab" href="/Pharmacist/Edit" role="tab" aria-selected="false">
-                                <i class="fas fa-edit"></i> Edit Profile
-                            </a>
+                            @Html.ActionLink("Edit Profile", "Edit", new { id = Session["PharmacistId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
                     </header>
                 </nav>

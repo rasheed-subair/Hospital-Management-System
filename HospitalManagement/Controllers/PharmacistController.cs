@@ -19,7 +19,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Index()
         {
-            return View(db.PharmacistTable.ToList());
+            if (Session["AdminId"] != null)
+            {
+                return View(db.PharmacistTable.ToList());
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -27,25 +31,32 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Homepage()
         {
-            return View();
+            if (Session["PharmacistId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login");
         }
-
 
         /***************************************/
         /*      View Pharmacist Details        */
         /***************************************/
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Pharmacist pharmacist = db.PharmacistTable.Find(id);
+                if (pharmacist == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(pharmacist);
             }
-            Pharmacist pharmacist = db.PharmacistTable.Find(id);
-            if (pharmacist == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pharmacist);
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -53,7 +64,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Pharmacist/Create
@@ -76,16 +91,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["PharamcistId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Pharmacist pharmacist = db.PharmacistTable.Find(id);
+                if (pharmacist == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(pharmacist);
             }
-            Pharmacist pharmacist = db.PharmacistTable.Find(id);
-            if (pharmacist == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pharmacist);
+            return RedirectToAction("Login");
         }
 
         // POST: Pharmacist/Edit/5
@@ -107,16 +126,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Pharmacist pharmacist = db.PharmacistTable.Find(id);
+                if (pharmacist == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(pharmacist);
             }
-            Pharmacist pharmacist = db.PharmacistTable.Find(id);
-            if (pharmacist == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pharmacist);
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Pharmacist/Delete/5
@@ -128,6 +151,46 @@ namespace HospitalManagement.Controllers
             db.PharmacistTable.Remove(pharmacist);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        /***********************************************/
+        /*              Pharmacist Login method            */
+        /***********************************************/
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Pharmacist account)
+        {
+            using (HospitalContext db = new HospitalContext())
+            {
+                try
+                {
+                    var mypharmacist = db.PharmacistTable.Single(a => a.Username == account.Username && a.Password == account.Password);
+                    if (mypharmacist != null)
+                    {
+                        Session["PharmacistId"] = mypharmacist.PharmacistId.ToString();
+                        Session["PharmacistName"] = mypharmacist.Name.ToString();
+                        return RedirectToAction("Homepage");
+                    }
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "");
+                }
+            }
+            return View();
+        }
+
+        /***********************************************/
+        /*          Pharmacist Logout method           */
+        /***********************************************/
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
         }
 
         protected override void Dispose(bool disposing)

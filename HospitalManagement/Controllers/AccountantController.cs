@@ -19,7 +19,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Index()
         {
-            return View(db.AccountantTable.ToList());
+            if (Session["AdminId"] != null)
+            {
+                return View(db.AccountantTable.ToList());
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -27,7 +31,12 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Homepage()
         {
-            return View();
+            if (Session["AccountantId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login");
+            
         }
 
         /***************************************/
@@ -35,16 +44,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Accountant accountant = db.AccountantTable.Find(id);
+                if (accountant == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(accountant);
             }
-            Accountant accountant = db.AccountantTable.Find(id);
-            if (accountant == null)
-            {
-                return HttpNotFound();
-            }
-            return View(accountant);
+            return RedirectToAction("Login","Admin");
         }
 
         /***************************************/
@@ -52,7 +65,12 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Admin");
+            
         }
 
         // POST: Accountant/Create
@@ -75,16 +93,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["AccountantId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Accountant accountant = db.AccountantTable.Find(id);
+                if (accountant == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(accountant);
             }
-            Accountant accountant = db.AccountantTable.Find(id);
-            if (accountant == null)
-            {
-                return HttpNotFound();
-            }
-            return View(accountant);
+            return RedirectToAction("Login");
         }
 
         // POST: Accountant/Edit/5
@@ -106,16 +128,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Accountant accountant = db.AccountantTable.Find(id);
+                if (accountant == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(accountant);
             }
-            Accountant accountant = db.AccountantTable.Find(id);
-            if (accountant == null)
-            {
-                return HttpNotFound();
-            }
-            return View(accountant);
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Accountant/Delete/5
@@ -128,6 +154,50 @@ namespace HospitalManagement.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        /***********************************************/
+        /*          Accountant Login method            */
+        /***********************************************/
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Accountant account)
+        {
+            using (HospitalContext db = new HospitalContext())
+            {
+                try
+                {
+                    var myaccountant = db.AccountantTable.Single(a => a.Username == account.Username && a.Password == account.Password);
+                    if (myaccountant != null)
+                    {
+                        Session["AccountantId"] = myaccountant.AccountantId.ToString();
+                        Session["AccountantName"] = myaccountant.Name.ToString();
+
+                        return RedirectToAction("Homepage");
+                    }
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "");
+                }
+            }
+            return View();
+        }
+
+
+        /***********************************************/
+        /*         Accountant Logout method            */
+        /***********************************************/
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

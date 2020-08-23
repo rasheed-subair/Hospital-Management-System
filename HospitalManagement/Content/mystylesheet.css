@@ -113,15 +113,6 @@ body {
 	}
 }
 
-/* .body-info {
-	position: absolute;
-	right: 0px;
-	padding: 20px;
-	margin-bottom: 110px;
-
-} */
-
-
 /* CONTENT___ styles - Start */
 .content {
 	width: 100%;
@@ -133,13 +124,9 @@ body {
 	border: 1px solid lightgray;
 	border-bottom: 3px solid lightgray;
 	border-right: 3px solid lightgray;
-	/*box-shadow: rgba(0, 0, 0, 0.3) 10px 10px inset;*/
 }
 
 .card-image {
 	font-size: 4em;
 	color: #c7c3c3;
 }
-/* CONTENT___ styles - End */
-
-/* Index page -Admin styles -End */

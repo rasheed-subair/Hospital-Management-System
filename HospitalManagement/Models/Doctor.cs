@@ -22,6 +22,7 @@ namespace HospitalManagement.Models
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Password  is Required")]
+        [StringLength(50, MinimumLength = 8, ErrorMessage = "Password must exceed 8 characters")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

@@ -19,7 +19,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Index()
         {
-            return View(db.DoctorTable.ToList());
+            if (Session["AdminId"] != null)
+            {
+                return View(db.DoctorTable.ToList());
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -27,7 +31,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Homepage()
         {
-            return View();
+            if (Session["DoctorId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login");
         }
 
         /***************************************/
@@ -35,16 +43,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Doctor doctor = db.DoctorTable.Find(id);
+                if (doctor == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(doctor);
             }
-            Doctor doctor = db.DoctorTable.Find(id);
-            if (doctor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(doctor);
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -52,7 +64,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Doctor/Create
@@ -66,7 +82,6 @@ namespace HospitalManagement.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(doctor);
         }
 
@@ -75,16 +90,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["DoctorId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Doctor doctor = db.DoctorTable.Find(id);
+                if (doctor == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(doctor);
             }
-            Doctor doctor = db.DoctorTable.Find(id);
-            if (doctor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(doctor);
+            return RedirectToAction("Login");
         }
 
         // POST: Doctor/Edit/5
@@ -106,16 +125,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Doctor doctor = db.DoctorTable.Find(id);
+                if (doctor == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(doctor);
             }
-            Doctor doctor = db.DoctorTable.Find(id);
-            if (doctor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(doctor);
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Doctor/Delete/5
@@ -127,6 +150,46 @@ namespace HospitalManagement.Controllers
             db.DoctorTable.Remove(doctor);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        /***********************************************/
+        /*              Doctor Login method            */
+        /***********************************************/
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Doctor account)
+        {
+            using (HospitalContext db = new HospitalContext())
+            {
+                try
+                {
+                    var mydoctor = db.DoctorTable.Single(a => a.Username == account.Username && a.Password == account.Password);
+                    if (mydoctor != null)
+                    {
+                        Session["DoctorId"] = mydoctor.DoctorId.ToString();
+                        Session["DoctorName"] = mydoctor.Name.ToString();
+                        return RedirectToAction("Homepage");
+                    }
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "");
+                }
+            }
+            return View();
+        }
+
+        /***********************************************/
+        /*            Doctor Logout method             */
+        /***********************************************/
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
         }
 
         protected override void Dispose(bool disposing)

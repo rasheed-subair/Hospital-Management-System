@@ -19,7 +19,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Index()
         {
-            return View(db.AdminTable.ToList());
+            if (Session["AdminId"] != null)
+            {
+                return View(db.AdminTable.ToList());
+            }
+            return RedirectToAction("Login");
         }
 
         /***************************************/
@@ -27,7 +31,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Homepage()
         {
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login");
         }
 
 
@@ -36,16 +44,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Admin admin = db.AdminTable.Find(id);
+                if (admin == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(admin);
             }
-            Admin admin = db.AdminTable.Find(id);
-            if (admin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(admin);
+            return RedirectToAction("Login");
         }
 
         /***************************************/
@@ -76,16 +88,21 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Admin admin = db.AdminTable.Find(id);
+                if (admin == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(admin);
             }
-            Admin admin = db.AdminTable.Find(id);
-            if (admin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(admin);
+            return RedirectToAction("Login");
+            
         }
 
         // POST: Admin/Edit/5
@@ -107,16 +124,21 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Admin admin = db.AdminTable.Find(id);
+                if (admin == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(admin);
             }
-            Admin admin = db.AdminTable.Find(id);
-            if (admin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(admin);
+            return RedirectToAction("Login");
+
         }
 
         // POST: Admin/Delete/5
@@ -129,6 +151,49 @@ namespace HospitalManagement.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        /***********************************************/
+        /*             Admin Login method              */
+        /***********************************************/
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Admin account)
+        {
+            using (HospitalContext db = new HospitalContext())
+            {
+                try
+                {
+                    var myadmin = db.AdminTable.Single(a => a.Username == account.Username && a.Password == account.Password);
+                    if (myadmin != null)
+                    {
+                        Session["AdminId"] = myadmin.AdminId.ToString();
+                        Session["Name"] = myadmin.Name.ToString();
+
+                        return RedirectToAction("Homepage");
+                    }
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "");
+                }
+            }
+            return View();
+        }
+
+
+        /***********************************************/
+        /*            Admin Logout method              */
+        /***********************************************/
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -40,6 +40,15 @@
                             <a class="nav-item nav-link main-nav-link" href="/Pharmacist/Index">
                                 <i class="fas fa-capsules"></i> Pharmacist
                             </a>
+                            <a class="nav-item nav-link main-nav-link" href="/Nurse/Index">
+                                <i class="fas fa-user-nurse"></i> Nurse
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" href="/LabTech/Index">
+                                <i class="fas fa-vial"></i> Laboratorist
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" href="/Accountant/Index">
+                                <i class="fas fa-vial"></i> Accountant
+                            </a>
                             <a class="nav-item nav-link main-nav-link" href="/Patient/Index">
                                 <i class="fas fa-user-injured"></i> Patient
                             </a>
@@ -49,15 +58,7 @@
                             <a class="nav-item nav-link main-nav-link" href="/Appointment/Index">
                                 <i class="far fa-calendar-check"></i> Patient Appointments
                             </a>
-                            <a class="nav-item nav-link main-nav-link" href="/Nurse/Index">
-                                <i class="fas fa-user-nurse"></i> Nurse
-                            </a>
-                            <a class="nav-item nav-link main-nav-link" href="/LabTech/Index">
-                                <i class="fas fa-vial"></i> Laboratorist
-                            </a>
-                            <a class="nav-item nav-link main-nav-link" href="/Admin/Edit">
-                                <i class="fas fa-edit"></i> Edit Profile
-                            </a>
+                            @Html.ActionLink("Edit Profile", "Edit", new { id = Session["AdminId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
                     </header>
                 </nav>

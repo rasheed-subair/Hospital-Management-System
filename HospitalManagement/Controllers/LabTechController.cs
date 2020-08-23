@@ -19,7 +19,12 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Index()
         {
-            return View(db.LabTechTable.ToList());
+            if (Session["AdminId"] != null)
+            {
+                return View(db.LabTechTable.ToList());
+            }
+            return RedirectToAction("Login", "Admin");
+            
         }
 
         /***************************************/
@@ -27,7 +32,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Homepage()
         {
-            return View();
+            if (Session["LabTechId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login");
         }
 
         /***************************************/
@@ -35,16 +44,21 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                LabTech labTech = db.LabTechTable.Find(id);
+                if (labTech == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(labTech);
             }
-            LabTech labTech = db.LabTechTable.Find(id);
-            if (labTech == null)
-            {
-                return HttpNotFound();
-            }
-            return View(labTech);
+            return RedirectToAction("Login", "Admin");
+            
         }
 
         /***************************************/
@@ -52,7 +66,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: LabTech/Create
@@ -75,16 +93,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["LabTechId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                LabTech labTech = db.LabTechTable.Find(id);
+                if (labTech == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(labTech);
             }
-            LabTech labTech = db.LabTechTable.Find(id);
-            if (labTech == null)
-            {
-                return HttpNotFound();
-            }
-            return View(labTech);
+            return RedirectToAction("Login");
         }
 
         // POST: LabTech/Edit/5
@@ -106,16 +128,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                LabTech labTech = db.LabTechTable.Find(id);
+                if (labTech == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(labTech);
             }
-            LabTech labTech = db.LabTechTable.Find(id);
-            if (labTech == null)
-            {
-                return HttpNotFound();
-            }
-            return View(labTech);
+            return RedirectToAction("Login");
         }
 
         // POST: LabTech/Delete/5
@@ -128,6 +154,49 @@ namespace HospitalManagement.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        /***********************************************/
+        /*              LabTech Login method           */
+        /***********************************************/
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LabTech account)
+        {
+            using (HospitalContext db = new HospitalContext())
+            {
+                try
+                {
+                    var mylabtech = db.LabTechTable.Single(a => a.Username == account.Username && a.Password == account.Password);
+                    if (mylabtech != null)
+                    {
+                        Session["LabTechId"] = mylabtech.LabTechId.ToString();
+                        Session["LabTechName"] = mylabtech.Name.ToString();
+
+                        return RedirectToAction("Homepage");
+                    }
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "");
+                }
+            }
+            return View();
+        }
+
+        /***********************************************/
+        /*            LabTech Logout method            */
+        /***********************************************/
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -40,10 +40,8 @@
                             <a class="nav-item nav-link main-nav-link" href="/Patient/AddPatient">
                                 <i class="fas fa-notes-medical"></i> Report
                             </a>
-                            
-                            <a class="nav-item nav-link main-nav-link" href="/Doctor/EditDoctor">
-                                <i class="fas fa-edit"></i> Edit Profile
-                            </a>
+
+                            @Html.ActionLink("Edit Profile", "Edit", new { id = Session["DoctorId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
                     </header>
                 </nav>

@@ -30,10 +30,7 @@
                             <a class="nav-item nav-link main-nav-link" href="/PatientRecord/index" role="tab" aria-selected="false">
                                 <i class="far fa-user-injured"></i> Patient
                             </a>
-
-                            <a class="nav-item nav-link main-nav-link" href="/Accountant/Edit" role="tab" aria-selected="false">
-                                <i class="fas fa-edit"></i> Edit Profile
-                            </a>
+                            @Html.ActionLink("Edit Profile", "Edit", new { id = Session["AccountantId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
                     </header>
                 </nav>

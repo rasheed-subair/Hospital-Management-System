@@ -308,7 +308,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Patient\AddPatient.cshtml" />
     <Content Include="Views\Patient\PatientList.cshtml" />
     <Content Include="Views\Patient\EditPatient.cshtml" />
@@ -370,6 +369,13 @@
     <Content Include="Views\LabTech\Homepage.cshtml" />
     <Content Include="Views\Nurse\Homepage.cshtml" />
     <Content Include="Views\Pharmacist\Homepage.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Accountant\Login.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Doctor\Login.cshtml" />
+    <Content Include="Views\LabTech\Login.cshtml" />
+    <Content Include="Views\Nurse\Login.cshtml" />
+    <Content Include="Views\Pharmacist\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
