@@ -308,11 +308,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
-    <Content Include="Views\Patient\AddPatient.cshtml" />
-    <Content Include="Views\Patient\PatientList.cshtml" />
-    <Content Include="Views\Patient\EditPatient.cshtml" />
-    <Content Include="Views\Patient\DeletePatient.cshtml" />
-    <Content Include="Views\Patient\PatientDetails.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_DoctorLayout.cshtml" />
     <Content Include="Views\Shared\_LabTechLayout.cshtml" />

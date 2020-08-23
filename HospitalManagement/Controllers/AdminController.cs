@@ -171,7 +171,7 @@ namespace HospitalManagement.Controllers
                     if (myadmin != null)
                     {
                         Session["AdminId"] = myadmin.AdminId.ToString();
-                        Session["Name"] = myadmin.Name.ToString();
+                        Session["AdminName"] = myadmin.Name.ToString();
 
                         return RedirectToAction("Homepage");
                     }

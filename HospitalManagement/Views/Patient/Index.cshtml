@@ -8,7 +8,7 @@
 <div>
     <a href="/Patient/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add New Patient</a>
     <hr />
-    <h4 class="mb-3 text-secondary">Patients</h4>
+    <h4 class="mb-3 text-secondary text-center">Patients</h4>
 </div>
 
 <table class="table">
@@ -56,8 +56,8 @@
         </td>
      
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PatientId }, new { @class = "btn btn-primary btn-sm" }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }, new { @class = "btn btn-success btn-sm" })
+            @Html.ActionLink("Details", "Details", new { id=item.PatientId }, new { @class = "btn btn-primary btn-sm" })
             @Html.ActionLink("Delete", "Delete", new { id=item.PatientId }, new { @class = "btn btn-danger btn-sm" })
         </td>
     </tr>

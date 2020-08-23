@@ -8,7 +8,7 @@
 <div class="container mx-3">
     <a href="/Patient/Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
     <hr />
-    <h4 class="mb-3 text-secondary">Create new Patient Account</h4>
+    <h4 class="mb-3 text-secondary text-center">Create new Patient Account</h4>
 </div>
 
 @using (Html.BeginForm()) 
@@ -106,6 +106,8 @@
             </div>
         </div>
 
+        <hr />
+        <h4 class="mb-3 text-secondary text-center">Emergency Contact</h4>
         <div class="form-group">
             @Html.LabelFor(model => model.ECName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -129,6 +131,9 @@
                 @Html.ValidationMessageFor(model => model.ECPhone, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <hr />
+        <h4 class="mb-3 text-secondary text-center">Medical History</h4>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Allergies, htmlAttributes: new { @class = "control-label col-md-2" })
