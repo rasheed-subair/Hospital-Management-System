@@ -1,8 +1,35 @@
 ﻿@model HospitalManagement.Models.PatientRecord
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    if (Session["AdminId"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    if (Session["DoctorId"] != null)
+    {
+        Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+    }
+
+    if (Session["NurseId"] != null)
+    {
+        Layout = "~/Views/Shared/_NurseLayout.cshtml";
+    }
+
+    if (Session["PharmacistId"] != null)
+    {
+        Layout = "~/Views/Shared/_PharmacistLayout.cshtml";
+    }
+
+    if (Session["LabTechId"] != null)
+    {
+        Layout = "~/Views/Shared/_LabTechLayout.cshtml";
+    }
+
+    if (Session["AccountantId"] != null)
+    {
+        Layout = "~/Views/Shared/_AccountantLayout.cshtml";
+    }
 }
 
 <h2>Details</h2>
@@ -10,182 +37,659 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Doctor.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Doctor.Name)
-        </dd>
+        @*TO BE Viewed BY ADMIN *@
+        @if (Session["AdminId"] != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Doctor.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Patient.FirstName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Doctor.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Patient.FirstName)
-        </dd>
+            <dt>
+                Patient Name:
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Weight)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Patient.FirstName) @Html.DisplayFor(model => model.Patient.LastName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Weight)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Weight)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Height)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Weight)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Height)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Height)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BloodPressure)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Height)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.BloodPressure)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BloodPressure)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Temperature)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BloodPressure)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Temperature)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Temperature)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Complaint)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Temperature)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Complaint)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Complaint)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TimIn)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Complaint)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TimIn)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TimIn)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AdmissionCost)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TimIn)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.AdmissionCost)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AdmissionCost)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CommentsDoctor)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AdmissionCost)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CommentsDoctor)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CommentsDoctor)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prescription)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CommentsDoctor)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prescription)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prescription)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TestRequired)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prescription)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TestRequired)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TestRequired)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ToBeAdmitted)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TestRequired)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ToBeAdmitted)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ToBeAdmitted)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WardAndBed)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ToBeAdmitted)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.WardAndBed)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.WardAndBed)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsAdmitted)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WardAndBed)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsAdmitted)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmitted)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsDischarged)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmitted)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsDischarged)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsDischarged)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PriceMed)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsDischarged)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PriceMed)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PriceMed)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MedsGiven)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PriceMed)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MedsGiven)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MedsGiven)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TestResult)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MedsGiven)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TestResult)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TestResult)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PriceTest)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TestResult)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PriceTest)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PriceTest)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalCost)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PriceTest)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TotalCost)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Paid)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TotalCost)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Paid)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PaidMed)
+            </dt>
 
+            <dd>
+                @Html.DisplayFor(model => model.PaidMed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PaidTest)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaidTest)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PaidTotal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaidTotal)
+            </dd>
+        }
+
+        @*TO BE Viewed BY Doctor *@
+        @if (Session["DoctorId"] != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Doctor.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Doctor.Name)
+            </dd>
+
+            <dt>
+                Patient Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Patient.FirstName) @Html.DisplayFor(model => model.Patient.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Weight)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Weight)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Height)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Height)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BloodPressure)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BloodPressure)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Temperature)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Temperature)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Complaint)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Complaint)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TimIn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TimIn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CommentsDoctor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CommentsDoctor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Prescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Prescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TestRequired)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestRequired)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ToBeAdmitted)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ToBeAdmitted)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WardAndBed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WardAndBed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmitted)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmitted)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsDischarged)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsDischarged)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedsGiven)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedsGiven)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TestResult)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestResult)
+            </dd>
+        }
+
+        @*TO BE Viewed BY Nurse *@
+        @if (Session["NurseId"] != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Doctor.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Doctor.Name)
+            </dd>
+
+            <dt>
+                Patient Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Patient.FirstName) @Html.DisplayFor(model => model.Patient.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Weight)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BloodPressure)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BloodPressure)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Temperature)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Temperature)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Complaint)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Complaint)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CommentsDoctor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CommentsDoctor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Prescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Prescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TestRequired)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestRequired)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ToBeAdmitted)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ToBeAdmitted)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WardAndBed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WardAndBed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmitted)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmitted)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsDischarged)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsDischarged)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedsGiven)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedsGiven)
+            </dd>
+        }
+
+        @*TO BE Viewed BY Pharmacist *@
+        @if (Session["PharmacistId"] != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Doctor.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Doctor.Name)
+            </dd>
+
+            <dt>
+                Patient Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Patient.FirstName) @Html.DisplayFor(model => model.Patient.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Prescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Prescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmitted)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmitted)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsDischarged)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsDischarged)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PriceMed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PriceMed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedsGiven)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedsGiven)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PaidMed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaidMed)
+            </dd>
+        }
+
+        @*TO BE Viewed BY LabTech *@
+        @if (Session["LabTechId"] != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Doctor.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Doctor.Name)
+            </dd>
+
+            <dt>
+                Patient Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Patient.FirstName) @Html.DisplayFor(model => model.Patient.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BloodPressure)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BloodPressure)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TestRequired)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestRequired)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TestResult)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TestResult)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PriceTest)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PriceTest)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PaidTest)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaidTest)
+            </dd>
+
+        }
+
+        @*TO BE Viewed BY Accountant *@
+        @if (Session["AccountantId"] != null)
+        {
+            <dt>
+                Patient Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Patient.FirstName) @Html.DisplayFor(model => model.Patient.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AdmissionCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AdmissionCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PriceMed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PriceMed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedsGiven)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedsGiven)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PriceTest)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PriceTest)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PaidMed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaidMed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PaidTest)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaidTest)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PaidTotal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaidTotal)
+            </dd>
+        }
     </dl>
 </div>
 <p>

@@ -47,14 +47,14 @@ namespace HospitalManagement.Controllers
         public ActionResult Create()
         {
             ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name");
-            ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "FirstName");
+            ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "PatientId");
             return View();
         }
 
         // POST: PatientRecord/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,Paid,PatientId,DoctorId")] PatientRecord patientRecord)
+        public ActionResult Create([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,PaidTotal,PaidMed,PaidTest,PatientId,DoctorId")] PatientRecord patientRecord)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace HospitalManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,Paid,PatientId,DoctorId")] PatientRecord patientRecord)
+        public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,PaidTotal,PaidMed,PaidTest,PatientId,DoctorId")] PatientRecord patientRecord)
         {
             if (ModelState.IsValid)
             {

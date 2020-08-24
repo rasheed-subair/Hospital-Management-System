@@ -32,13 +32,13 @@
                                 <i class="fas fa-home"></i> Dashboard
                             </a>
                             <a class="nav-item nav-link main-nav-link" href="/Appointment/Index">
-                                <i class="far fa-calendar-alt"></i> Appointment
+                                <i class="far fa-calendar-alt"></i> Appointments
                             </a>
-                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/AddPharmacist">
-                                <i class="fas fa-pills"></i> Prescription
+                            <a class="nav-item nav-link main-nav-link" href="/Patient/Index">
+                                <i class="fas fa-user-injured"></i> Patients
                             </a>
-                            <a class="nav-item nav-link main-nav-link" href="/Patient/AddPatient">
-                                <i class="fas fa-notes-medical"></i> Report
+                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/Index">
+                                <i class="fas fa-notes-medical"></i> Patient Records
                             </a>
 
                             @Html.ActionLink("Edit Profile", "Edit", new { id = Session["DoctorId"] }, new { @class = "nav-item nav-link main-nav-link" })
@@ -59,7 +59,7 @@
                         <div class="row mb-3">
                             <div class="col-6 text-left text-secondary">@ViewBag.Name</div>
                             <div class="col-6 text-right">
-                                <a href="/Home/Login" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
+                                <a href="/Doctor/Logout" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
                             </div>
                         </div>
                         <hr>

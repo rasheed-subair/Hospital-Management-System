@@ -1,8 +1,15 @@
 ﻿@model HospitalManagement.Models.Patient
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    if (Session["AdminId"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    if (Session["DoctorId"] != null)
+    {
+        Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+    }
 }
 
 <h2>Details</h2>
@@ -262,7 +269,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }) |
+    @if (Session["AdminId"] != null)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }, new { @class = "btn btn-primary btn-sm" })
+    }
     <div class="container mx-3">
         <a href="/Patient/Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
     </div>

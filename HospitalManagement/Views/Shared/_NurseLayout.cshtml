@@ -29,11 +29,11 @@
                         </div>
                         <br>
                         <div class="nav nav-tabs d-block" id="nav-tab">
-                            <a class="nav-item nav-link main-nav-link" href="/LabTech/index">
+                            <a class="nav-item nav-link main-nav-link" href="/Nurse/Homepage">
                                 <i class="fas fa-home"></i> Dashboard
                             </a>
                             <a class="nav-item nav-link main-nav-link" href="/PatientRecord/Index">
-                                <i class="far fa-user-injured"></i> Patient
+                                <i class="fas fa-notes-medical"></i> Patient Records
                             </a>
                             @Html.ActionLink("Edit Profile", "Edit", new { id = Session["NurseId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
@@ -53,7 +53,7 @@
                         <div class="row mb-3">
                             <div class="col-6 text-left text-secondary">@ViewBag.Name</div>
                             <div class="col-6 text-right">
-                                <a href="/Home/Login" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
+                                <a href="/Nurse/Logout" class="text-secondary">Logout <i class="fas fa-sign-out-alt"></i></a>
                             </div>
                         </div>
                         <hr>

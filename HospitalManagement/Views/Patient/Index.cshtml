@@ -1,13 +1,24 @@
 ﻿@model IEnumerable<HospitalManagement.Models.Patient>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    if (Session["AdminId"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    if (Session["DoctorId"] != null)
+    {
+        Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+    }
 }
 
 <div>
-    <a href="/Patient/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add New Patient</a>
-    <hr />
+    @if (Session["AdminId"] != null)
+    {
+        <a href="/Patient/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add New Patient</a>
+        <hr />
+    }
+
     <h4 class="mb-3 text-secondary text-center">Patients</h4>
 </div>
 
@@ -55,11 +66,23 @@
             @Html.DisplayFor(modelItem => item.DOB)
         </td>
      
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }, new { @class = "btn btn-success btn-sm" })
-            @Html.ActionLink("Details", "Details", new { id=item.PatientId }, new { @class = "btn btn-primary btn-sm" })
-            @Html.ActionLink("Delete", "Delete", new { id=item.PatientId }, new { @class = "btn btn-danger btn-sm" })
-        </td>
+        @if (Session["AdminId"] != null)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }, new { @class = "btn btn-success btn-sm" })
+                @Html.ActionLink("Details", "Details", new { id=item.PatientId }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Delete", "Delete", new { id=item.PatientId }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        }
+
+        @if (Session["DoctorId"] != null)
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id=item.PatientId }, new { @class = "btn btn-primary btn-sm" })
+            </td>
+        }
+
+        
     </tr>
 }
 

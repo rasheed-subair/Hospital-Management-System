@@ -87,7 +87,14 @@ namespace HospitalManagement.Models
         [DisplayName("Total Cost")]
         public int TotalCost { get; set; }
 
-        public bool Paid { get; set; }
+        [DisplayName("Paid Total")]
+        public bool PaidTotal { get; set; }
+
+        [DisplayName("Paid Test")]
+        public bool PaidTest { get; set; }
+
+        [DisplayName("Paid Med")]
+        public bool PaidMed { get; set; }
 
         /********************************/
         /*      Navigation Content      */

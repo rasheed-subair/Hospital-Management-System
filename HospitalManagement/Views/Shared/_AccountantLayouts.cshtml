@@ -24,11 +24,11 @@
                         </div>
                         <br>
                         <div class="nav nav-tabs d-block" id="nav-tab">
-                            <a class="nav-item nav-link main-nav-link" href="/Accountant/index" role="tab" aria-selected="true">
+                            <a class="nav-item nav-link main-nav-link" href="/Accountant/Homepage">
                                 <i class="fas fa-home"></i> Dashboard
                             </a>
-                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/index" role="tab" aria-selected="false">
-                                <i class="far fa-user-injured"></i> Patient
+                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/Index">
+                                <i class="fas fa-notes-medical"></i> Patient Records
                             </a>
                             @Html.ActionLink("Edit Profile", "Edit", new { id = Session["AccountantId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
