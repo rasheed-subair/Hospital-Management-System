@@ -19,25 +19,32 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Index()
         {
-            return View(db.PatientTable.ToList());
+            if (Session["AdminId"] != null || Session["DoctorId"] != null)
+            {
+                return View(db.PatientTable.ToList());
+            }
+            return RedirectToAction("Login", "Admin");
         }
-
 
         /***************************************/
         /*        View Patient Details         */
         /***************************************/
         public ActionResult Details(string id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null || Session["DoctorId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Patient patient = db.PatientTable.Find(id);
+                if (patient == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(patient);
             }
-            Patient patient = db.PatientTable.Find(id);
-            if (patient == null)
-            {
-                return HttpNotFound();
-            }
-            return View(patient);
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -45,7 +52,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Patient/Create
@@ -68,16 +79,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Edit(string id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Patient patient = db.PatientTable.Find(id);
+                if (patient == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(patient);
             }
-            Patient patient = db.PatientTable.Find(id);
-            if (patient == null)
-            {
-                return HttpNotFound();
-            }
-            return View(patient);
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Patient/Edit/5
@@ -99,16 +114,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Delete(string id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Patient patient = db.PatientTable.Find(id);
+                if (patient == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(patient);
             }
-            Patient patient = db.PatientTable.Find(id);
-            if (patient == null)
-            {
-                return HttpNotFound();
-            }
-            return View(patient);
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Patient/Delete/5

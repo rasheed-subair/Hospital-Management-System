@@ -19,8 +19,13 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Index()
         {
-            var patientRecordTable = db.PatientRecordTable.Include(p => p.Doctor).Include(p => p.Patient);
-            return View(patientRecordTable.ToList());
+            if (Session["AdminId"] != null || Session["DoctorId"] != null || Session["NurseId"] != null || Session["PharmacistId"] != null || Session["LabTechId"] != null || Session["AccountantId"] != null)
+            {
+                var patientRecordTable = db.PatientRecordTable.Include(p => p.Doctor).Include(p => p.Patient);
+                return View(patientRecordTable.ToList());
+            }
+            return RedirectToAction("Login", "Admin");
+            
         }
 
 
@@ -29,16 +34,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null || Session["DoctorId"] != null || Session["NurseId"] != null || Session["PharmacistId"] != null || Session["LabTechId"] != null || Session["AccountantId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                PatientRecord patientRecord = db.PatientRecordTable.Find(id);
+                if (patientRecord == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(patientRecord);
             }
-            PatientRecord patientRecord = db.PatientRecordTable.Find(id);
-            if (patientRecord == null)
-            {
-                return HttpNotFound();
-            }
-            return View(patientRecord);
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -46,9 +55,13 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name");
-            ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "PatientId");
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name");
+                ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "PatientId");
+                return View();
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: PatientRecord/Create
@@ -73,18 +86,22 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null || Session["DoctorId"] != null || Session["NurseId"] != null || Session["PharmacistId"] != null || Session["LabTechId"] != null || Session["AccountantId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                PatientRecord patientRecord = db.PatientRecordTable.Find(id);
+                if (patientRecord == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name", patientRecord.DoctorId);
+                ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "FirstName", patientRecord.PatientId);
+                return View(patientRecord);
             }
-            PatientRecord patientRecord = db.PatientRecordTable.Find(id);
-            if (patientRecord == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name", patientRecord.DoctorId);
-            ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "FirstName", patientRecord.PatientId);
-            return View(patientRecord);
+            return RedirectToAction("Login", "Admin");
         }
 
         [HttpPost]
@@ -107,16 +124,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                PatientRecord patientRecord = db.PatientRecordTable.Find(id);
+                if (patientRecord == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(patientRecord);
             }
-            PatientRecord patientRecord = db.PatientRecordTable.Find(id);
-            if (patientRecord == null)
-            {
-                return HttpNotFound();
-            }
-            return View(patientRecord);
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: PatientRecord/Delete/5

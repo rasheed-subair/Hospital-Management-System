@@ -19,7 +19,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Index()
         {
-            return View(db.AppointmentTable.ToList());
+            if (Session["AdminId"] != null || Session["DoctorId"] != null)
+            {
+                return View(db.AppointmentTable.ToList());
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -27,16 +31,20 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null || Session["DoctorId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Appointment appointment = db.AppointmentTable.Find(id);
+                if (appointment == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(appointment);
             }
-            Appointment appointment = db.AppointmentTable.Find(id);
-            if (appointment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(appointment);
+            return RedirectToAction("Login", "Admin");
         }
 
         /***************************************/
@@ -44,7 +52,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Admin");
         }
 
         // POST: Appointment/Create
@@ -69,16 +81,21 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["AdminId"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Appointment appointment = db.AppointmentTable.Find(id);
+                if (appointment == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(appointment);
             }
-            Appointment appointment = db.AppointmentTable.Find(id);
-            if (appointment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(appointment);
+            return RedirectToAction("Login", "Admin");
+            
         }
 
         // POST: Appointment/Delete/5
