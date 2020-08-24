@@ -17,10 +17,18 @@ namespace HospitalManagement.Controllers
         /***************************************/
         /*          Pharmacist List            */
         /***************************************/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             if (Session["AdminId"] != null)
             {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    var pharmacists = from s in db.PharmacistTable
+                                      select s;
+                    pharmacists = pharmacists.Where(s => s.Name.Contains(searchString));
+
+                    return View(pharmacists.ToList());
+                }
                 return View(db.PharmacistTable.ToList());
             }
             return RedirectToAction("Login", "Admin");

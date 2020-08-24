@@ -17,10 +17,18 @@ namespace HospitalManagement.Controllers
         /***************************************/
         /*        Patient Record List          */
         /***************************************/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             if (Session["AdminId"] != null || Session["DoctorId"] != null || Session["NurseId"] != null || Session["PharmacistId"] != null || Session["LabTechId"] != null || Session["AccountantId"] != null)
             {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    var patientRecords = from s in db.PatientRecordTable
+                                      select s;
+                    patientRecords = patientRecords.Where(s => s.PatientId.Contains(searchString));
+
+                    return View(patientRecords.ToList());
+                }
                 var patientRecordTable = db.PatientRecordTable.Include(p => p.Doctor).Include(p => p.Patient);
                 return View(patientRecordTable.ToList());
             }

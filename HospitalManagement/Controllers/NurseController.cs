@@ -17,10 +17,18 @@ namespace HospitalManagement.Controllers
         /***************************************/
         /*               Nurse List            */
         /***************************************/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             if (Session["AdminId"] != null)
             {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    var nurses = from s in db.NurseTable
+                                      select s;
+                    nurses = nurses.Where(s => s.Name.Contains(searchString));
+
+                    return View(nurses.ToList());
+                }
                 return View(db.NurseTable.ToList());
             }
             return RedirectToAction("Login", "Admin");

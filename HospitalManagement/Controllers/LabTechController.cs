@@ -17,10 +17,18 @@ namespace HospitalManagement.Controllers
         /***************************************/
         /*            LabTech List             */
         /***************************************/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             if (Session["AdminId"] != null)
             {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    var labtechs = from s in db.LabTechTable
+                                      select s;
+                    labtechs = labtechs.Where(s => s.Name.Contains(searchString));
+
+                    return View(labtechs.ToList());
+                }
                 return View(db.LabTechTable.ToList());
             }
             return RedirectToAction("Login", "Admin");

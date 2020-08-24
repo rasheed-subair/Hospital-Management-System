@@ -16,6 +16,14 @@
     <h4 class="mb-3 text-secondary text-center">Patient Appointments</h4>
 </div>
 
+<div class="container" align="right">
+    @using (Html.BeginForm())
+    {
+        @Html.TextBox("SearchString", null, new { @class = "form-control col-md-4 mb-2", placeholder = "Search by name" })
+        <input type="submit" value="Search" class="btn btn-outline-info mb-3" />
+    }
+</div>
+
 <table class="table">
     <tr>
         <th>

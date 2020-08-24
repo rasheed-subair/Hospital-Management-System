@@ -17,10 +17,19 @@ namespace HospitalManagement.Controllers
         /***************************************/
         /*          Appointment List           */
         /***************************************/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             if (Session["AdminId"] != null || Session["DoctorId"] != null)
             {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    var appointments = from s in db.AppointmentTable
+                                      select s;
+                    appointments = appointments.Where(s => s.LastName.Contains(searchString)
+                               || s.FirstName.Contains(searchString));
+
+                    return View(appointments.ToList());
+                }
                 return View(db.AppointmentTable.ToList());
             }
             return RedirectToAction("Login", "Admin");

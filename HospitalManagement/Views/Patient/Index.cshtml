@@ -22,6 +22,14 @@
     <h4 class="mb-3 text-secondary text-center">Patients</h4>
 </div>
 
+<div class="container" align="right">
+    @using (Html.BeginForm())
+    {
+        @Html.TextBox("SearchString", null, new { @class = "form-control col-md-4 mb-2", placeholder = "Search by name" })
+        <input type="submit" value="Search" class="btn btn-outline-info mb-3" />
+    }
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -45,45 +53,46 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PatientGender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOB)
-        </td>
-     
-        @if (Session["AdminId"] != null)
-        {
+    @foreach (var item in Model)
+    {
+        <tr>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }, new { @class = "btn btn-success btn-sm" })
-                @Html.ActionLink("Details", "Details", new { id=item.PatientId }, new { @class = "btn btn-primary btn-sm" })
-                @Html.ActionLink("Delete", "Delete", new { id=item.PatientId }, new { @class = "btn btn-danger btn-sm" })
+                @Html.DisplayFor(modelItem => item.FirstName)
             </td>
-        }
-
-        @if (Session["DoctorId"] != null)
-        {
             <td>
-                @Html.ActionLink("Details", "Details", new { id=item.PatientId }, new { @class = "btn btn-primary btn-sm" })
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
-        }
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
 
-        
-    </tr>
-}
+            @if (Session["AdminId"] != null)
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientId }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PatientId }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            }
+
+            @if (Session["DoctorId"] != null)
+            {
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientId }, new { @class = "btn btn-primary btn-sm" })
+                </td>
+            }
+
+
+        </tr>
+    }
 
 </table>

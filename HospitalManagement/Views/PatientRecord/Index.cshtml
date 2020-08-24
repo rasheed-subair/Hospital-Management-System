@@ -32,11 +32,22 @@
     }
 }
 
+@if (Session["AdminId"] != null)
+{
+    <div>
+        <a href="/PatientRecord/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add Record</a>
+        <hr />
+        <h4 class="mb-3 text-secondary text-center">Patient Records</h4>
+    </div>
+}
 
-<div>
-    <a href="/PatientRecord/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add Record</a>
-    <hr />
-    <h4 class="mb-3 text-secondary text-center">Patient Records</h4>
+
+<div class="container" align="right">
+    @using (Html.BeginForm())
+    {
+        @Html.TextBox("SearchString", null, new { @class = "form-control col-md-4 mb-2", placeholder = "Search by Patient ID" })
+        <input type="submit" value="Search" class="btn btn-outline-info mb-3" />
+    }
 </div>
 
 <table class="table">
