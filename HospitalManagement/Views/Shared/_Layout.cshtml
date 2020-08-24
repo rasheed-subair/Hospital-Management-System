@@ -1,42 +1,72 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Scripts.Render("~/bundles/modernizr")
+        <link rel="stylesheet" href="~/Content/Site.css" />
+        <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+
+
+    <body class="landing">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h3><strong><a href="index.html"><i class="far fa-hospital"></i> Sekhmet</a></strong> General Hospital</h3>
+            <nav id="nav">
+                <ul>
+                    <li><a href="/Home/Index">Home</a></li>
+                    <li><a href="/Home/About">About</a></li>
+                    <li><a href="/Home/Contact">Contact</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Staff portal
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item text-secondary" href="/Admin/Login">Admin</a>
+                            <a class="dropdown-item text-secondary" href="/Doctor/Login">Doctor</a>
+                            <a class="dropdown-item text-secondary" href="/Nurse/Login">Nurse</a>
+                            <a class="dropdown-item text-secondary" href="/Pharmacist/Login">Pharmacist</a>
+                            <a class="dropdown-item text-secondary" href="/LabTech/Login">Laboratorist</a>
+                            <a class="dropdown-item text-secondary" href="/Accountant/Login">Accountant</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+        @RenderBody()
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="container">
+                <ul class="icons" >
+                    <li><a href="#" class="text-primary"><i class="fab fa-facebook-f display-4"></i></a></li>
+                    <li><a href="#" class="text-primary"><i class="fab fa-twitter display-4"></i></a></li>
+                    <li><a href="#" class="text-danger"><i class="fab fa-instagram display-4"></i></a></li>
+                    <li><a href="#" class="text-info"><i class="fab fa-linkedin-in display-4"></i></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Sekhmet General Hospital Nig.</li>
+                    <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
                 </ul>
             </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
 </html>

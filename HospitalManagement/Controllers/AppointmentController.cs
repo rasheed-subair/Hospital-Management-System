@@ -61,11 +61,7 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            if (Session["AdminId"] != null)
-            {
-                return View();
-            }
-            return RedirectToAction("Login", "Admin");
+            return View();
         }
 
         // POST: Appointment/Create
