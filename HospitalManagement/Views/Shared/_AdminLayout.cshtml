@@ -58,7 +58,7 @@
                             <a class="nav-item nav-link main-nav-link" href="/Appointment/Index">
                                 <i class="far fa-calendar-check"></i> Patient Appointments
                             </a>
-                            @Html.ActionLink("Edit Profile", "Edit", new { id = Session["AdminId"] }, new { @class = "nav-item nav-link main-nav-link" })
+                            @Html.ActionLink("Edit Profile", "Edit", "Admin", new { id = Session["AdminId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
                     </header>
                 </nav>

@@ -30,7 +30,7 @@
                             <a class="nav-item nav-link main-nav-link" href="/PatientRecord/Index">
                                 <i class="fas fa-notes-medical"></i> Patient Records
                             </a>
-                            @Html.ActionLink("Edit Profile", "Edit", new { id = Session["AccountantId"] }, new { @class = "nav-item nav-link main-nav-link" })
+                            @Html.ActionLink("Edit Profile", "Edit", "Accountant", new { id = Session["AccountantId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
                     </header>
                 </nav>

@@ -28,7 +28,7 @@
 
     if (Session["AccountantId"] != null)
     {
-        Layout = "~/Views/Shared/_AccountantLayout.cshtml";
+        Layout = "~/Views/Shared/_AccountantLayouts.cshtml";
     }
 }
 
@@ -44,9 +44,8 @@
     <div class="form-horizontal">
         <h4 class="text-center">Edit Patient Record</h4>
         <p>
-            Patient Id:  @Html.DisplayFor(model => model.Patient.PatientId)
-            First Name: @Html.DisplayFor(model => model.Patient.FirstName)
-            Last Name:  @Html.DisplayFor(model => model.Patient.LastName)
+            Patient Id:  @Html.DisplayFor(model => model.Patient.PatientId) |
+            Name: @Html.DisplayFor(model => model.Patient.FirstName) @Html.DisplayFor(model => model.Patient.LastName)
         </p>
         <hr />
 
@@ -405,8 +404,4 @@
             </div>
         </div>
     </div>
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
