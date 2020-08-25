@@ -90,10 +90,12 @@ namespace HospitalManagement.Controllers
             {
                 db.LabTechTable.Add(labTech);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ModelState.Clear();
+                ViewBag.Message = "New Account Successfully Created";
             }
 
-            return View(labTech);
+            return View();
         }
 
         /***************************************/

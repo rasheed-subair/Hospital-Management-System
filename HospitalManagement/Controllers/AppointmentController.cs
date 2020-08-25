@@ -75,10 +75,11 @@ namespace HospitalManagement.Controllers
             {
                 db.AppointmentTable.Add(appointment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(appointment);
+                ModelState.Clear();
+                ViewBag.Message = "Your Appointment has been Successfully booked";
+            }
+            return View();
         }
 
         /***************************************/

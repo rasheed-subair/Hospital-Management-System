@@ -90,10 +90,11 @@ namespace HospitalManagement.Controllers
             {
                 db.AccountantTable.Add(accountant);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(accountant);
+                ModelState.Clear();
+                ViewBag.Message = "New Account Successfully Created";
+            }
+            return View();
         }
 
         /***************************************/

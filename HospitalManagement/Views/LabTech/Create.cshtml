@@ -11,10 +11,15 @@
     <h4 class="mb-3 text-secondary">Add new Laboratory staff</h4>
 </div>
 
-@using (Html.BeginForm()) 
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>LabTech</h4>
         <hr />

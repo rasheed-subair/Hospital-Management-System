@@ -81,12 +81,14 @@ namespace HospitalManagement.Controllers
             {
                 db.PatientRecordTable.Add(patientRecord);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ModelState.Clear();
+                ViewBag.Message = "New Account Successfully Created";
             }
 
             ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name", patientRecord.DoctorId);
             ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "FirstName", patientRecord.PatientId);
-            return View(patientRecord);
+            return View();
         }
 
         /***************************************/

@@ -85,10 +85,12 @@ namespace HospitalManagement.Controllers
             {
                 db.AdminTable.Add(admin);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ModelState.Clear();
+                ViewBag.Message = "New Account Successfully Created";
             }
 
-            return View(admin);
+            return View();
         }
 
         /***************************************/

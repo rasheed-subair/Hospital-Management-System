@@ -77,10 +77,12 @@ namespace HospitalManagement.Controllers
             {
                 db.PatientTable.Add(patient);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ModelState.Clear();
+                ViewBag.Message = "New Account Successfully Created";
             }
 
-            return View(patient);
+            return View();
         }
 
         /***************************************/
