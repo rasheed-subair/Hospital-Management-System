@@ -71,10 +71,31 @@ namespace HospitalManagement.Controllers
         // POST: Patient/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PatientId,FirstName,LastName,Phone,Email,Address,PatientGender,DOB,Occupation,Marital_Status,Photograph,ECName,ECRelationship,ECPhone,Allergies,Medication,Arthritis,Asthma,Cancer,Depression,Diabetes,Epilepsy,Heart_Disease,HBP,High_Cholesterol,Renal_Disease,Stroke,Thyroid,Alcohol,Smoke,Caffeine,Recreational_Drugs")] Patient patient)
+        public ActionResult Create([Bind(Include = "PatientId,FirstName,LastName,Phone,Email,Address,PatientGender,DOB,Occupation,Marital_Status,Photograph,ECName,ECRelationship,ECPhone,Allergies,Medication,Arthritis,Asthma,Cancer,Depression,Diabetes,Epilepsy,Heart_Disease,HBP,High_Cholesterol,Renal_Disease,Stroke,Thyroid,Alcohol,Smoke,Caffeine,Recreational_Drugs")] Patient patient, HttpPostedFileBase UploadImage)
         {
             if (ModelState.IsValid)
             {
+                ///This allows you to upload images and save them to the database
+                if (UploadImage != null)
+                {
+                    if (UploadImage.ContentType == "Image/jpg" || UploadImage.ContentType == "image/jpeg" || UploadImage.ContentType == "image/png")
+                    {
+                        UploadImage.SaveAs(Server.MapPath("/") + "/Content/images/" + UploadImage.FileName);
+                        patient.Photograph = UploadImage.FileName;
+                    }
+                    else
+                    {
+                        ViewBag.Feedback = "Image Format not supported";
+                        return View();
+                    }
+
+                }
+                else
+                {
+                    return View();
+                }
+                //Upload image Ends
+
                 db.PatientTable.Add(patient);
                 db.SaveChanges();
 

@@ -201,9 +201,9 @@
                     @Html.DisplayFor(modelItem => item.PaidTotal)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
-                    @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PatientRecordId }, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm mb-2" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PatientRecordId }, new { @class = "btn btn-danger btn-sm mb-2" })
                 </td>
             }
 
@@ -226,7 +226,7 @@
                     @Html.DisplayFor(modelItem => item.IsDischarged)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -250,7 +250,7 @@
                     @Html.DisplayFor(modelItem => item.IsDischarged)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -274,7 +274,7 @@
                     @Html.DisplayFor(modelItem => item.MedsGiven)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -298,7 +298,7 @@
                     @Html.DisplayFor(modelItem => item.PaidTest)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -322,170 +322,10 @@
                     @Html.DisplayFor(modelItem => item.PaidTotal)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
         </tr>
     }
 </table>
-
-
-@*
-    Deleted files in original Table (Table Headers):
-    <th>
-        @Html.DisplayNameFor(model => model.Patient.FirstName) @Html.DisplayNameFor(model => model.Patient.LastName)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.Doctor.Name)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.Weight)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.Height)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.BloodPressure)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.Temperature)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.Complaint)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.TimIn)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.AdmissionCost)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.CommentsDoctor)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.Prescription)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.TestRequired)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.ToBeAdmitted)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.WardAndBed)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.IsAdmitted)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.IsDischarged)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.PriceMed)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.MedsGiven)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.TestResult)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.PriceTest)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.TotalCost)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.PaidMed)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.PaidTest)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.PaidTotal)
-    </th>
-    <th></th>
-*@
-
-@*
-    Deleted files in original Table (Table Data):
-    <td>
-    @Html.DisplayFor(modelItem => item.Patient.FirstName) @Html.DisplayFor(modelItem => item.Patient.LastName)
-    </td>
-
-    <td>
-        @Html.DisplayFor(modelItem => item.Doctor.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Weight)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Height)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.BloodPressure)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Temperature)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Complaint)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TimIn)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AdmissionCost)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CommentsDoctor)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Prescription)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TestRequired)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ToBeAdmitted)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.WardAndBed)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.IsAdmitted)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.IsDischarged)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PriceMed)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MedsGiven)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TestResult)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PriceTest)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TotalCost)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PaidMed)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PaidTest)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PaidTotal)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
-        @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
-        @Html.ActionLink("Delete", "Delete", new { id = item.PatientRecordId }, new { @class = "btn btn-danger btn-sm" })
-    </td>
-*@

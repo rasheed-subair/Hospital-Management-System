@@ -7,45 +7,29 @@
 
 <h2>Details</h2>
 
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-    </dl>
+<div style="font-size: 1.2em;">
+    <hr />
+    <table class="table-hover">
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Name)</b></td>
+            <td>@Html.DisplayFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Email)</b></td>
+            <td>@Html.DisplayFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Phone)</b></td>
+            <td>@Html.DisplayFor(model => model.Phone)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Address)</b></td>
+            <td>@Html.DisplayFor(model => model.Address)</td>
+        </tr>
+    </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PharmacistId }) |
-    <div class="container mx-3">
-        <a href="/Pharmacist/Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
+    <div class="my-3">
+        <a href="/Pharmacist/Index" class="btn btn-outline-secondary"><i class="fas fa-chevron-left"></i> To list</a>
     </div>
 </p>

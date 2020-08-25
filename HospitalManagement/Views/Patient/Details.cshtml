@@ -15,265 +15,138 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Patient</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PatientGender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PatientGender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DOB)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DOB)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Occupation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Occupation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Marital_Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Marital_Status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photograph)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photograph)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ECName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ECName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ECRelationship)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ECRelationship)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ECPhone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ECPhone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Allergies)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Allergies)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Medication)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Medication)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Arthritis)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Arthritis)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Asthma)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Asthma)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cancer)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cancer)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Depression)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Depression)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Diabetes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Diabetes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Epilepsy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Epilepsy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Heart_Disease)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Heart_Disease)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HBP)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HBP)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.High_Cholesterol)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.High_Cholesterol)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Renal_Disease)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Renal_Disease)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Stroke)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Stroke)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Thyroid)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Thyroid)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Alcohol)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Alcohol)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Smoke)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Smoke)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Caffeine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Caffeine)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Recreational_Drugs)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Recreational_Drugs)
-        </dd>
-
-    </dl>
+    <table class="table-hover my-4">
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.FirstName)</td>
+            <td> @Html.DisplayFor(model => model.FirstName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.LastName)</td>
+            <td> @Html.DisplayFor(model => model.LastName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Phone)</td>
+            <td> @Html.DisplayFor(model => model.Phone)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Email)</td>
+            <td> @Html.DisplayFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Address)</td>
+            <td> @Html.DisplayFor(model => model.Address)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.PatientGender)</td>
+            <td> @Html.DisplayFor(model => model.PatientGender)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.DOB)</td>
+            <td> @Html.DisplayFor(model => model.DOB)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Occupation)</td>
+            <td> @Html.DisplayFor(model => model.Occupation)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Marital_Status)</td>
+            <td> @Html.DisplayFor(model => model.Marital_Status)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Photograph)</td>
+            <td><img src="~/Content/images/@Model.Photograph" width="150" height="200" alt="Photo" style="border: 1px dashed gray; border-radius: 6px; padding: 6px;" /></td>
+        </tr>
+        <tr>
+            <td><h4>Emergency Contact</h4></td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ECName)</td>
+            <td> @Html.DisplayFor(model => model.ECName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ECRelationship)</td>
+            <td> @Html.DisplayFor(model => model.ECRelationship)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.ECPhone)</td>
+            <td> @Html.DisplayFor(model => model.ECPhone)</td>
+        </tr>
+        <tr>
+            <td><h4>Medical History</h4></td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Medication)</td>
+            <td> @Html.DisplayFor(model => model.Medication)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Arthritis)</td>
+            <td> @Html.DisplayFor(model => model.Arthritis)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Asthma)</td>
+            <td> @Html.DisplayFor(model => model.Asthma)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Cancer)</td>
+            <td> @Html.DisplayFor(model => model.Cancer)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Depression)</td>
+            <td> @Html.DisplayFor(model => model.Depression)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Diabetes)</td>
+            <td> @Html.DisplayFor(model => model.Diabetes)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Epilepsy)</td>
+            <td> @Html.DisplayFor(model => model.Epilepsy)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Heart_Disease)</td>
+            <td> @Html.DisplayFor(model => model.Heart_Disease)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.HBP)</td>
+            <td> @Html.DisplayFor(model => model.HBP)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.High_Cholesterol)</td>
+            <td> @Html.DisplayFor(model => model.High_Cholesterol)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Renal_Disease)</td>
+            <td> @Html.DisplayFor(model => model.Renal_Disease)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Stroke)</td>
+            <td> @Html.DisplayFor(model => model.Stroke)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Thyroid) </td>
+            <td> @Html.DisplayFor(model => model.Thyroid)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Alcohol)</td>
+            <td> @Html.DisplayFor(model => model.Alcohol)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Smoke)</td>
+            <td> @Html.DisplayFor(model => model.Smoke)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Caffeine)</td>
+            <td> @Html.DisplayFor(model => model.Caffeine)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Recreational_Drugs)</td>
+            <td> @Html.DisplayFor(model => model.Recreational_Drugs)</td>
+        </tr>
+    </table>
 </div>
-<p>
-    @if (Session["AdminId"] != null)
-    {
-        @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }, new { @class = "btn btn-primary btn-sm" })
-    }
-    <div class="container mx-3">
-        <a href="/Patient/Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
-    </div>
-</p>
+
+<div class="my-3">
+    <a href="/Patient/Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
+</div>

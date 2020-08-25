@@ -156,7 +156,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\admin-index.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -179,17 +178,12 @@
     <Content Include="Content\js\skel.min.js" />
     <Content Include="Content\js\util.js" />
     <Content Include="Content\mystylesheet.css" />
-    <Content Include="Content\doctor-index.html" />
     <Content Include="Content\img\blue-green.jpg" />
     <Content Include="Content\img\login-bg.jpg" />
     <Content Include="Content\js\angular.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\popper.min.js" />
-    <Content Include="Content\laboratorist-index.html" />
-    <Content Include="Content\login.html" />
-    <Content Include="Content\nurse-index.html" />
-    <Content Include="Content\pharmacist-index.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -394,6 +388,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
