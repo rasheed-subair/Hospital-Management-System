@@ -96,6 +96,8 @@ namespace HospitalManagement.Controllers
                 }
                 //Upload image Ends
 
+                string sample = Guid.NewGuid().ToString();
+                patient.PatientId = sample.Substring(0, 5);
                 db.PatientTable.Add(patient);
                 db.SaveChanges();
 

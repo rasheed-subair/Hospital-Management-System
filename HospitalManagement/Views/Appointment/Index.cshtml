@@ -24,8 +24,8 @@
     }
 </div>
 
-<table class="table">
-    <tr>
+<table class="table table-hover">
+    <tr class="bg-light">
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
@@ -69,7 +69,7 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.AppointmentId }, new { @class = "btn btn-primary btn-sm mb-2" })
-            @Html.ActionLink("Delete", "Delete", new { id=item.AppointmentId }, new { @class = "btn btn-danger btn-sm" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.AppointmentId }, new { @class = "btn btn-danger btn-sm mb-2" })
         </td>
     </tr>
 }

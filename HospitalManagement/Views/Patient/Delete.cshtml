@@ -11,36 +11,36 @@
 
 <hr />
 
-<h3>Are you sure you want to delete this?</h3>
+<h5>Are you sure you want to delete this?</h5>
 <div>
-
     <table class="table-hover">
         <tr>
-            <td>@Html.DisplayNameFor(model => model.FirstName)</td>
+            <td><b>@Html.DisplayNameFor(model => model.FirstName)</b></td>
             <td>@Html.DisplayFor(model => model.FirstName)</td>
         </tr>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.LastName)</td>
+            <td><b>@Html.DisplayNameFor(model => model.LastName)</b></td>
             <td>@Html.DisplayFor(model => model.LastName)</td>
         </tr>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.Phone)</td>
-            <td>@Html.DisplayFor(model => model.Phone)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.DOB)</td>
-            <td>@Html.DisplayFor(model => model.DOB)</td>
-        </tr>
-        <tr>
-            <td>@Html.DisplayNameFor(model => model.Photograph)</td>
+            <td><b>@Html.DisplayNameFor(model => model.Photograph)</b></td>
             <td><img src="~/Content/images/@Model.Photograph" width="150" height="200" alt="Photo" style="border: 1px dashed gray; border-radius: 6px; padding: 6px;" /></td>
         </tr>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.ECName)</td>
+            <td><b>@Html.DisplayNameFor(model => model.Phone)</b></td>
+            <td>@Html.DisplayFor(model => model.Phone)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.DOB)</b></td>
+            <td>@Html.DisplayFor(model => model.DOB)</td>
+        </tr>
+
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.ECName)</b></td>
             <td>@Html.DisplayFor(model => model.ECName)</td>
         </tr>
         <tr>
-            <td>@Html.DisplayNameFor(model => model.ECPhone)</td>
+            <td><b>@Html.DisplayNameFor(model => model.ECPhone)</b></td>
             <td>@Html.DisplayFor(model => model.ECPhone)</td>
         </tr>
     </table>
@@ -50,7 +50,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger btn-lg" />
+            <input type="submit" value="Delete" class="btn btn-danger my-2 w-25" />
         </div>
     }
 </div>

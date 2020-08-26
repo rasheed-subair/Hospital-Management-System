@@ -50,8 +50,8 @@
     }
 </div>
 
-<table class="table">
-    <tr>
+<table class="table table-hover">
+    <tr class="bg-light">
         @*TO BE VIEWED BY ADMIN *@
         @if (Session["AdminId"] != null)
         {
@@ -226,7 +226,7 @@
                     @Html.DisplayFor(modelItem => item.IsDischarged)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -250,7 +250,7 @@
                     @Html.DisplayFor(modelItem => item.IsDischarged)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -274,7 +274,7 @@
                     @Html.DisplayFor(modelItem => item.MedsGiven)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -298,7 +298,7 @@
                     @Html.DisplayFor(modelItem => item.PaidTest)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -322,7 +322,7 @@
                     @Html.DisplayFor(modelItem => item.PaidTotal)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
