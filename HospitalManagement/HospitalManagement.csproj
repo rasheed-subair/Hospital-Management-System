@@ -389,6 +389,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
+    <Folder Include="Content\testresults\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

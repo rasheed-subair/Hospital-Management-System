@@ -83,7 +83,7 @@ namespace HospitalManagement.Controllers
                 db.SaveChanges();
 
                 ModelState.Clear();
-                ViewBag.Message = "New Account Successfully Created";
+                ViewBag.Message = "New Patient Record Successfully Created";
             }
 
             ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name", patientRecord.DoctorId);
@@ -116,10 +116,27 @@ namespace HospitalManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,PaidTotal,PaidMed,PaidTest,PatientId,DoctorId")] PatientRecord patientRecord)
+        public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,PaidTotal,PaidMed,PaidTest,PatientId,DoctorId")] PatientRecord patientRecord, HttpPostedFileBase UploadImage)
         {
             if (ModelState.IsValid)
             {
+                if (UploadImage != null)
+                {
+                    if (UploadImage.ContentType == "Image/jpg" || UploadImage.ContentType == "Image/jpeg" || UploadImage.ContentType == "Image/png")
+                    {
+                        UploadImage.SaveAs(Server.MapPath("/") + "/Content/images/" + UploadImage.FileName);
+                        patientRecord.TestResult = UploadImage.FileName;
+                    }
+                    else
+                    {
+                        return View();
+                    }
+
+                }
+                else
+                {
+                    return View();
+                }
                 db.Entry(patientRecord).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
