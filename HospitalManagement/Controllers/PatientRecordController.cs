@@ -116,34 +116,19 @@ namespace HospitalManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,PaidTotal,PaidMed,PaidTest,PatientId,DoctorId")] PatientRecord patientRecord, HttpPostedFileBase UploadImage)
+        public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,PaidTotal,PaidMed,PaidTest,PatientId,DoctorId")] PatientRecord patientRecord)
         {
             if (ModelState.IsValid)
             {
-                if (UploadImage != null)
-                {
-                    if (UploadImage.ContentType == "Image/jpg" || UploadImage.ContentType == "Image/jpeg" || UploadImage.ContentType == "Image/png")
-                    {
-                        UploadImage.SaveAs(Server.MapPath("/") + "/Content/images/" + UploadImage.FileName);
-                        patientRecord.TestResult = UploadImage.FileName;
-                    }
-                    else
-                    {
-                        return View();
-                    }
-
-                }
-                else
-                {
-                    return View();
-                }
+                ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name", patientRecord.DoctorId);
+                ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "FirstName", patientRecord.PatientId);
+                
                 db.Entry(patientRecord).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name", patientRecord.DoctorId);
-            ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "FirstName", patientRecord.PatientId);
-            return View(patientRecord);
+            
+            return View();
         }
 
         /***************************************/
