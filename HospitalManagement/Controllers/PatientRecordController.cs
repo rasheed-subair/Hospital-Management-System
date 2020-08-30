@@ -116,10 +116,27 @@ namespace HospitalManagement.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,PaidTotal,PaidMed,PaidTest,PatientId,DoctorId")] PatientRecord patientRecord)
+        public ActionResult Edit([Bind(Include = "PatientRecordId,Weight,Height,BloodPressure,Temperature,Complaint,TimIn,AdmissionCost,CommentsDoctor,Prescription,TestRequired,ToBeAdmitted,WardAndBed,IsAdmitted,IsDischarged,PriceMed,MedsGiven,TestResult,PriceTest,TotalCost,PaidTotal,PaidMed,PaidTest,PatientId,DoctorId")] PatientRecord patientRecord, HttpPostedFileBase UploadImage)
         {
             if (ModelState.IsValid)
             {
+                ///This allows you to upload images and save them to the database
+                if (UploadImage != null)
+                {
+                    if (UploadImage.ContentType == "Image/jpg" || UploadImage.ContentType == "image/jpeg" || UploadImage.ContentType == "image/png")
+                    {
+                        UploadImage.SaveAs(Server.MapPath("/") + "/Content/images/" + UploadImage.FileName);
+                        patientRecord.TestResult = UploadImage.FileName;
+                    }
+                    else
+                    {
+                        ViewBag.Feedback = "Image Format not supported";
+                        return View();
+                    }
+
+                }
+                //Upload image Ends
+
                 ViewBag.DoctorId = new SelectList(db.DoctorTable, "DoctorId", "Name", patientRecord.DoctorId);
                 ViewBag.PatientId = new SelectList(db.PatientTable, "PatientId", "FirstName", patientRecord.PatientId);
                 

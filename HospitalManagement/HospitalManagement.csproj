@@ -136,6 +136,7 @@
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LabTechController.cs" />
+    <Compile Include="Controllers\NewsletterController.cs" />
     <Compile Include="Controllers\NurseController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\PatientRecordController.cs" />
@@ -149,6 +150,8 @@
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\HospitalContext.cs" />
     <Compile Include="Models\LabTech.cs" />
+    <Compile Include="Models\Medication.cs" />
+    <Compile Include="Models\Newsletter.cs" />
     <Compile Include="Models\Nurse.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PatientRecord.cs" />
@@ -166,12 +169,16 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\ambulance.jpg" />
     <Content Include="Content\img\baby.jpg" />
+    <Content Include="Content\img\bgsteth.jpg" />
     <Content Include="Content\img\cancer.jpg" />
     <Content Include="Content\img\equipment.jpg" />
     <Content Include="Content\img\foot.jpg" />
     <Content Include="Content\img\mask.jpg" />
+    <Content Include="Content\img\research.jpg" />
+    <Content Include="Content\img\ribs.jpg" />
     <Content Include="Content\img\skeleton.jpg" />
     <Content Include="Content\img\stem.jpg" />
+    <Content Include="Content\img\stethos.jpg" />
     <Content Include="Content\img\surgery.jpg" />
     <Content Include="Content\img\xray.jpg" />
     <Content Include="Content\js\main.js" />
@@ -179,7 +186,6 @@
     <Content Include="Content\js\util.js" />
     <Content Include="Content\mystylesheet.css" />
     <Content Include="Content\img\blue-green.jpg" />
-    <Content Include="Content\img\login-bg.jpg" />
     <Content Include="Content\js\angular.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery.min.js" />
@@ -385,6 +391,9 @@
     <Content Include="Views\LabTech\Login.cshtml" />
     <Content Include="Views\Nurse\Login.cshtml" />
     <Content Include="Views\Pharmacist\Login.cshtml" />
+    <Content Include="Views\Newsletter\Create.cshtml" />
+    <Content Include="Views\Newsletter\Delete.cshtml" />
+    <Content Include="Views\Newsletter\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,7 +5,7 @@
 <!-- Banner -->
 <section id="banner">
     <h2>Sekhmet</h2>
-    <p>We make it a responsibility to give the best care <br /> Healing with a touch of love</p>
+    <p class="text-secondary">We make it a responsibility to give the best care <br /> Healing with a touch of love</p>
     <ul class="actions">
         <li><a href="/Appointment/Create" class="button special big">Book an Appointment</a></li>
     </ul>
@@ -38,7 +38,7 @@
         <div class="row 150%">
             <div class="6u 12u$(xsmall)">
                 <div class="image fit captioned">
-                    <img src="~/Content/img/skeleton.jpg" alt="" />
+                    <img src="~/Content/img/research.jpg" alt="" />
                     <h3>Stem cell research with world-renowned experts</h3>
                 </div>
             </div>
@@ -50,8 +50,8 @@
             </div>
         </div>
         <ul class="actions">
-            <li><a href="/Home/About" class="button special big">Find out more</a></li>
-            <li><a href="/Home/Contact" class="button big">Find us on the map <i class="fas fa-map-marked-alt"></i></a></li>
+            <li><a href="/Home/About" class="button special big">Read more</a></li>
+            <li><a href="/Home/Contact" class="button big">Find us <i class="fas fa-map-marked-alt"></i></a></li>
         </ul>
     </div>
 </section>
@@ -108,10 +108,33 @@
     <div class="container">
         <header class="major">
             <h2>"Always laugh when you can, it is cheap medicine."</h2>
-            <p>Talk to us, your friendly neighborhood hospital.</p>
+            <p class="text-secondary">Want regular health tips? Sign up for our newsletters.</p>
         </header>
         <ul class="actions">
-            <li><a href="/Home/Contact" class="button special big">Get in touch</a></li>
+            @model HospitalManagement.Models.Newsletter
+            <li>
+                @using (Html.BeginForm("Create", "Newsletter"))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="" style="width: 60vw;">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-12 w-100">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control text-center", 
+                               placeholder = "Sign up for our newsletter", style = "height: 60px; font-size: 1.6em; border-radius: 30px; background-color: rgba(255, 255, 255, 0.85);" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-12">
+                                <input type="submit" value="Sign up" class="btn btn-danger" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </li>
         </ul>
     </div>
 </section>

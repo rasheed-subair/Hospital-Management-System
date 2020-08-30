@@ -14,21 +14,22 @@ namespace HospitalManagement.Models
         /********************************/
         [Key]
         public int PatientRecordId { get; set; }
-        public int Weight { get; set; }
-        public int Height { get; set; }
+        public double Weight { get; set; }
+        public double Height { get; set; }
 
         [DisplayName("Blood Pressure")]
-        public int BloodPressure { get; set; }
-        public int Temperature { get; set; }
+        public double BloodPressure { get; set; }
+        public double Temperature { get; set; }
 
         [DisplayName("Patient Complaint")]
         [DataType(DataType.MultilineText)]
         public string Complaint { get; set; }
 
+        [DataType(DataType.DateTime)]
         public string TimIn { get; set; }
 
         [DisplayName("Total cost - Admitted")]
-        public int AdmissionCost { get; set; }
+        public double AdmissionCost { get; set; }
 
         /********************************/
         /*       Edited By Doctor       */
@@ -65,7 +66,7 @@ namespace HospitalManagement.Models
         /********************************/
 
         [DisplayName("Price- Medication")]
-        public int PriceMed { get; set; }
+        public double PriceMed { get; set; }
 
         [DisplayName("Medication Delivered")]
         public bool MedsGiven { get; set; }
@@ -73,19 +74,20 @@ namespace HospitalManagement.Models
         /********************************/
         /*      Edited By Labtech       */
         /********************************/
+        [DisplayName("Test Result")]
         [DataType(DataType.MultilineText)]
         public string TestResult { get; set; }
 
 
         [DisplayName("Price- Lab Test")]
-        public int PriceTest { get; set; }
+        public double PriceTest { get; set; }
 
         /********************************/
         /*    Edited By Accountant      */
         /********************************/
 
         [DisplayName("Total Cost")]
-        public int TotalCost { get; set; }
+        public double TotalCost { get; set; }
 
         [DisplayName("Paid Total")]
         public bool PaidTotal { get; set; }
@@ -99,7 +101,10 @@ namespace HospitalManagement.Models
         /********************************/
         /*      Navigation Content      */
         /********************************/
+        [DisplayName("Patient Id")]
         public string PatientId { get; set; }
+
+        [DisplayName("Doctor Id")]
         public int DoctorId { get; set; }
 
 

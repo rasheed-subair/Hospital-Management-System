@@ -90,10 +90,6 @@ namespace HospitalManagement.Controllers
                     }
 
                 }
-                else
-                {
-                    return View();
-                }
                 //Upload image Ends
 
                 string sample = Guid.NewGuid().ToString();

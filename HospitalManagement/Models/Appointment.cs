@@ -12,9 +12,11 @@ namespace HospitalManagement.Models
         [Key]
         public int AppointmentId { get; set; }
 
+        [DisplayName("First Name")]
         [Required(ErrorMessage = "First Name is Required")]
         public string FirstName { get; set; }
 
+        [DisplayName("Last Name")]
         [Required(ErrorMessage = "Last Name is Required")]
         public string LastName { get; set; }
 
