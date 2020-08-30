@@ -20,8 +20,11 @@ namespace HospitalManagement.Models
         [Required(ErrorMessage = "Brand Name is Required")]
         public string BrandName { get; set; }
 
+        [DisplayName("Drug Description")]
+        [DataType(DataType.MultilineText)]
+        public string DrugDescription { get; set; }
+
         [DisplayName("Drug Price")]
-        [DataType(DataType.Currency)]
         [Required(ErrorMessage = "Drug Price is Required")]
         public double DrugPrice { get; set; }
 
@@ -33,8 +36,9 @@ namespace HospitalManagement.Models
 
         
         [DisplayName("Expiry Date")]
-        [DataType(DataType.DateTime)]
-        public double ExpDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public string ExpDate { get; set; }
     }
 
     public enum DrugCategory

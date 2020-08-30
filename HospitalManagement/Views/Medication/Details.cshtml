@@ -1,0 +1,46 @@
+﻿@model HospitalManagement.Models.Medication
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_PharmacistLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div style="font-size: 1.2em;">
+    <hr />
+    <table class="table-hover">
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.DrugName)</b></td>
+            <td>@Html.DisplayFor(model => model.DrugName)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.BrandName)</b></td>
+            <td>@Html.DisplayFor(model => model.BrandName)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.DrugDescription)</b></td>
+            <td>@Html.DisplayFor(model => model.DrugDescription)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.DrugPrice)</b></td>
+            <td>@Html.DisplayFor(model => model.DrugPrice)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Quantity)</b></td>
+            <td>@Html.DisplayFor(model => model.Quantity)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Category)</b></td>
+            <td>@Html.DisplayFor(model => model.Category)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.ExpDate)</b></td>
+            <td>@Html.DisplayFor(model => model.ExpDate)</td>
+        </tr>
+    </table>
+</div>
+
+<div class="my-3">
+    <a href="/Medication/Index" class="btn btn-outline-secondary"><i class="fas fa-chevron-left"></i> To list</a>
+</div>
