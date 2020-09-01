@@ -32,8 +32,17 @@
                         </div>
                         <br>
                         <div class="nav nav-tabs d-block" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link main-nav-link" href="/Admin/Index">
+                            <a class="nav-item nav-link main-nav-link" href="/Admin/Homepage">
                                 <i class="fas fa-home"></i> Dashboard
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" href="/Patient/Index">
+                                <i class="fas fa-user-injured"></i> Patient
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/Index">
+                                <i class="fas fa-notes-medical"></i> Patient Records
+                            </a>
+                            <a class="nav-item nav-link main-nav-link" href="/Appointment/Index">
+                                <i class="far fa-calendar-check"></i> Patient Appointments
                             </a>
                             <a class="nav-item nav-link main-nav-link" href="/Doctor/Index">
                                 <i class="fas fa-user-md"></i> Doctor
@@ -50,15 +59,7 @@
                             <a class="nav-item nav-link main-nav-link" href="/Accountant/Index">
                                 <i class="fas fa-vial"></i> Accountant
                             </a>
-                            <a class="nav-item nav-link main-nav-link" href="/Patient/Index">
-                                <i class="fas fa-user-injured"></i> Patient
-                            </a>
-                            <a class="nav-item nav-link main-nav-link" href="/PatientRecord/Index">
-                                <i class="fas fa-notes-medical"></i> Patient Records
-                            </a>
-                            <a class="nav-item nav-link main-nav-link" href="/Appointment/Index">
-                                <i class="far fa-calendar-check"></i> Patient Appointments
-                            </a>
+
                             @Html.ActionLink("Edit Profile", "Edit", "Admin", new { id = Session["AdminId"] }, new { @class = "nav-item nav-link main-nav-link" })
                         </div>
                     </header>

@@ -172,15 +172,16 @@
     <Content Include="Content\img\baby.jpg" />
     <Content Include="Content\img\bgsteth.jpg" />
     <Content Include="Content\img\cancer.jpg" />
+    <Content Include="Content\img\doctor.jpg" />
     <Content Include="Content\img\equipment.jpg" />
     <Content Include="Content\img\foot.jpg" />
-    <Content Include="Content\img\mask.jpg" />
+    <Content Include="Content\img\hands.jpg" />
     <Content Include="Content\img\research.jpg" />
     <Content Include="Content\img\ribs.jpg" />
-    <Content Include="Content\img\skeleton.jpg" />
     <Content Include="Content\img\stem.jpg" />
     <Content Include="Content\img\stethos.jpg" />
     <Content Include="Content\img\surgery.jpg" />
+    <Content Include="Content\img\tooth.png" />
     <Content Include="Content\img\xray.jpg" />
     <Content Include="Content\js\main.js" />
     <Content Include="Content\js\skel.min.js" />
@@ -222,6 +223,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\Database\HospitalDatabase.bak" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -73,7 +73,11 @@ namespace HospitalManagement.Controllers
         /***************************************/
         public ActionResult Create()
         {
-            return View();
+            if (Session["AdminId"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login");
         }
 
         // POST: Admin/Create

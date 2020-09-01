@@ -4,11 +4,14 @@
 }
 <!-- Banner -->
 <section id="banner">
-    <h2>Sekhmet</h2>
-    <p class="text-secondary">We make it a responsibility to give the best care <br /> Healing with a touch of love</p>
-    <ul class="actions">
-        <li><a href="/Appointment/Create" class="button special big">Book an Appointment</a></li>
-    </ul>
+    <div style="background-color: rgba(0, 0, 0, 0.3); padding: 10px;">
+        <h2>Sekhmet</h2>
+        <p class="text-white">We make it a responsibility to give the best care. <br /> Healing with love</p>
+        <ul class="actions">
+            <li><a href="/Appointment/Create" class="button special big">Book an Appointment</a></li>
+        </ul>
+    </div>
+    
 </section>
 
 <!-- One -->
@@ -104,11 +107,26 @@
 </section>
 
 <!-- Four -->
+<section id="two" class="wrapper style2 special">
+    <div class="container mb-5">
+        <header class="major">
+            <h2>What to expect</h2>
+        </header>
+        <div class="" align="center">
+            <iframe src="https://www.youtube.com/embed/NLw-Aimomfo" style="width: 70vw; height: 400px; min-width: 500px; box-shadow: 0px 0px 8px rgba(0,0,0,0.5);"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <br /><br /><br />
+    </div>
+</section>
+
+
+<!-- Five -->
 <section id="four" class="wrapper style3 special">
     <div class="container">
         <header class="major">
             <h2>"Always laugh when you can, it is cheap medicine."</h2>
-            <p class="text-secondary">Want regular health tips? Sign up for our newsletters.</p>
+            <p class="text-dark">Want regular health tips? Sign up for our newsletters.</p>
         </header>
         <ul class="actions">
             @model HospitalManagement.Models.Newsletter
@@ -121,8 +139,15 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
                             <div class="col-md-12 w-100">
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control text-center", 
-                               placeholder = "Sign up for our newsletter", style = "height: 60px; font-size: 1.6em; border-radius: 30px; background-color: rgba(255, 255, 255, 0.85);" } })
+                                @Html.EditorFor(model => model.Email, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control text-center",
+                               placeholder = "Sign up for our newsletter",
+                                        style = "height: 60px; font-size: 1.6em; border-radius: 30px; background-color: rgba(255, 255, 255, 0.9);"
+                                    }
+                                })
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
