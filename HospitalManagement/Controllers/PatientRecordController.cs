@@ -79,6 +79,7 @@ namespace HospitalManagement.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.PatientRecordTable.Add(patientRecord);
                 db.SaveChanges();
 
