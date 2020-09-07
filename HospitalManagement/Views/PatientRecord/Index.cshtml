@@ -226,7 +226,7 @@
                     @Html.DisplayFor(modelItem => item.IsDischarged)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-1" })
                     @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             }
@@ -292,7 +292,7 @@
                     @Html.DisplayFor(modelItem => item.TestRequired)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PriceTest)
+                    ₦@Html.DisplayFor(modelItem => item.PriceTest)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PaidTest)

@@ -107,7 +107,7 @@
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.PriceMed)</b></td>
-                <td>@Html.DisplayFor(model => model.PriceMed)</td>
+                <td>₦@Html.DisplayFor(model => model.PriceMed)</td>
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.MedsGiven)</b></td>
@@ -122,11 +122,15 @@
                             <i class="far fa-eye"></i> View Test Result
                         </a>
                     }
+                    else
+                    {
+                        <p>No tests taken</p>
+                    }
                 </td>
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.PriceTest)</b></td>
-                <td>@Html.DisplayFor(model => model.PriceTest)</td>
+                <td>₦@Html.DisplayFor(model => model.PriceTest)</td>
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.TotalCost)</b></td>
@@ -216,9 +220,16 @@
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.TestResult)</b></td>
                 <td>
-                    <a href="~/Content/images/@Model.TestResult" class="btn btn-secondary btn-sm" target="_blank">
-                        <i class="far fa-eye"></i> View Test Result
-                    </a>
+                    @if (@Model.TestResult != null)
+                    {
+                        <a href="~/Content/images/@Model.TestResult" class="btn btn-secondary btn-sm" target="_blank">
+                            <i class="far fa-eye"></i> View Test Result
+                        </a>
+                    }
+                    else
+                    {
+                        <p>No tests taken</p>
+                    }
                 </td>
             </tr>
         }
@@ -309,7 +320,7 @@
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.PriceMed)</b></td>
-                <td>@Html.DisplayFor(model => model.PriceMed)</td>
+                <td>₦@Html.DisplayFor(model => model.PriceMed)</td>
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.MedsGiven)</b></td>
@@ -343,14 +354,21 @@
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.TestResult)</b></td>
                 <td>
-                    <a href="~/Content/images/@Model.TestResult" class="btn btn-secondary btn-sm" target="_blank">
-                        <i class="far fa-eye"></i> View Test Result
-                    </a>
+                    @if (@Model.TestResult != null)
+                    {
+                        <a href="~/Content/images/@Model.TestResult" class="btn btn-secondary btn-sm" target="_blank">
+                            <i class="far fa-eye"></i> View Test Result
+                        </a>
+                    }
+                    else
+                    {
+                        <p>No tests taken</p>
+                    }
                 </td>
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.PriceTest)</b></td>
-                <td>@Html.DisplayFor(model => model.PriceTest)</td>
+                <td>₦@Html.DisplayFor(model => model.PriceTest)</td>
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.PaidTest)</b></td>
@@ -371,7 +389,7 @@
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.PriceMed)</b></td>
-                <td>@Html.DisplayFor(model => model.PriceMed)</td>
+                <td>₦@Html.DisplayFor(model => model.PriceMed)</td>
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.MedsGiven)</b></td>
@@ -379,7 +397,7 @@
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.PriceTest)</b></td>
-                <td>@Html.DisplayFor(model => model.PriceTest)</td>
+                <td>₦@Html.DisplayFor(model => model.PriceTest)</td>
             </tr>
             <tr>
                 <td><b>@Html.DisplayNameFor(model => model.TotalCost)</b></td>
