@@ -1,0 +1,132 @@
+:root {
+	--main-blue: #1852b4;
+	--main-lightblue: #4589fc;
+	--main-green: #f26640;
+}
+
+body {
+	background-color: rgb(250, 250, 250);
+}
+/* Login page styles - Start */
+.login-flex {
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.2);
+	/* The next three lines are used to center the div */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login {
+	height: 410px;
+	width: 20em;
+	background-color: #ffffff;
+	border-radius: 7px;
+	box-shadow: 5px 10px 4px rgba(0,0,0,0.2), -10px 15px 3px rgba(0,0,0,0.2);
+}
+
+.login-inputfield {
+	border: none;
+	border-bottom: 2px solid var(--main-blue);
+	border-right: 1px solid var(--main-blue);
+	border-radius: 1.5px;
+	background-color: transparent;
+}
+
+.login-btn {
+	background-color: var(--main-lightblue);
+}
+
+	.login-btn:hover {
+		background-color: var(--main-blue);
+	}
+/* Login page styles - End */
+
+
+/* Index page -Admin styles -Start */
+#navbar {
+	position: fixed;
+	background: #fff;
+	border-right: 2px solid var(--main-blue);
+	width: 18%;
+	min-width: 250px;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	/* background-color: var(--main-blue); 5d81dd*/
+	background: linear-gradient(295deg, #6890f5, #3f62bd);
+}
+
+.nav-profile {
+	font-size: 1.3em;
+	border-bottom: 2px solid white;
+}
+
+.main-nav-link {
+	border-bottom: 2px solid white;
+	border-radius: 4px;
+	text-decoration: none;
+	color: white;
+	font-size: 1.15em;
+}
+
+.main-nav-link:hover {
+	background-color: var(--main-blue);
+	color: white;
+	border: none;
+	border-bottom: 2px solid white;
+}
+/* What happens when the nav-link is clicked */
+.main-nav-link:active {
+	position: relative;
+	padding-left: 25px;
+}
+
+#main-doc {
+	margin-left: 160px;
+	margin-right: 20px;
+	border-radius: 6px;
+	width: 82%;
+	height: auto;
+	padding: 10px;
+}
+
+@media (max-width: 700px) {
+	#navbar {
+		position: static;
+		border-bottom: 3px solid var(--main-blue);
+		width: 100%;
+		height: 250px;
+		top: 0px;
+		left: 0px;
+		display: inline-block;
+		text-align: center;
+		overflow-y: scroll;
+	}
+
+	#main-doc {
+		margin-top: 80px;
+		margin-left: 10px;
+		float: left; /* Add this to the Logout tag instead*/
+		width: 97%;
+	}
+}
+
+/* CONTENT___ styles - Start */
+.content {
+	width: 100%;
+	height: 60vh;
+}
+
+.card-deck .card {
+	width: 315px;
+	border: 1px solid lightgray;
+	border-bottom: 3px solid lightgray;
+	border-right: 3px solid lightgray;
+}
+
+.card-image {
+	font-size: 4em;
+	color: #c7c3c3;
+}

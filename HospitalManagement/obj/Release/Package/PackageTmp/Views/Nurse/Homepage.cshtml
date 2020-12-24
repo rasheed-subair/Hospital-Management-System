@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "NurseIndex";
+    Layout = "~/Views/Shared/_NurseLayout.cshtml";
+}
+
+
+<div class="my-5">
+    <div class="card-deck admin-card my-5">
+        <div class="row mb-5">
+            <div class="col-md-6 col-lg-6 mb-4">
+                <div class="card">
+                    <a href="/Nurse/Homepage" class="text-decoration-none">
+                        <div class="card-body">
+                            <div class="row text-info">
+                                <div class="col-7"> <h4 class="card-text">Dashboard</h4></div>
+                                <div class="col-5 card-image"><i class="fas fa-user-nurse"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 mb-4">
+                <div class="card">
+                    <a href="/PatientRecord/Index" class="text-decoration-none">
+                        <div class="card-body text-success">
+                            <div class="row">
+                                <div class="col-7"> <h4 class="card-text">Records</h4></div>
+                                <div class="col-5 card-image"><i class="fas fa-notes-medical"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

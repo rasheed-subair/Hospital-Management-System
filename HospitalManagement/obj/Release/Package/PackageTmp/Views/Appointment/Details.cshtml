@@ -1,0 +1,51 @@
+﻿@model HospitalManagement.Models.Appointment
+
+@{
+    if (Session["AdminId"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    if (Session["DoctorId"] != null)
+    {
+        Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+    }
+}
+
+<h2>Details</h2>
+
+<div style="font-size: 1.2em;">
+    <hr />
+    <table class="table-hover">
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.FirstName)</b></td>
+            <td>@Html.DisplayFor(model => model.FirstName)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.LastName)</b></td>
+            <td>@Html.DisplayFor(model => model.LastName)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Email)</b></td>
+            <td>@Html.DisplayFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Details)</b></td>
+            <td>@Html.DisplayFor(model => model.Details)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.AppointmentDay)</b></td>
+            <td>@Html.DisplayFor(model => model.AppointmentDay)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.AppointmentTime)</b></td>
+            <td>@Html.DisplayFor(model => model.AppointmentTime)</td>
+        </tr>
+    </table>
+</div>
+
+<p>
+    <div class="my-3">
+        <a href="/Appointment/Index" class="btn btn-outline-secondary"><i class="fas fa-chevron-left"></i> To list</a>
+    </div>
+</p>

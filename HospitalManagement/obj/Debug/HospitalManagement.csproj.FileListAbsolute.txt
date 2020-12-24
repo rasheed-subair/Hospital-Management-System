@@ -81,3 +81,5 @@ C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\bin\EntityFramewo
 C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\bin\EntityFramework.SqlServer.dll
 C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\bin\EntityFramework.xml
 C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\bin\EntityFramework.SqlServer.xml
+C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\obj\Debug\HospitalManagement.Migrations.InitialCreate.resources
+C:\Users\hp\source\repos\HospitalManagement\HospitalManagement\obj\Debug\HospitalManagement.csproj.GenerateResource.cache

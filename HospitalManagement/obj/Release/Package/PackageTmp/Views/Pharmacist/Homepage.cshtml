@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "PharmacistIndex";
+    Layout = "~/Views/Shared/_PharmacistLayout.cshtml";
+}
+
+<div class="my-5">
+    <div class="card-deck admin-card my-5">
+        <div class="row mb-5">
+
+            <div class="col-md-6 col-lg-4">
+                <a href="/Pharmacist/Homepage" class="text-decoration-none">
+                    <div class="card text-success">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-7"><h5 class="card-text">Dashboard</h5></div>
+                                <div class="col-5 card-image"><i class="fas fa-capsules"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a href="/PatientRecord/Index" class="text-decoration-none">
+                        <div class="card-body text-primary">
+                            <div class="row">
+                                <div class="col-7"> <h4 class="card-text">Records</h4></div>
+                                <div class="col-5 card-image"><i class="fas fa-notes-medical"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <a href="/Medication/Index" class="text-decoration-none">
+                        <div class="card-body text-primary">
+                            <div class="row">
+                                <div class="col-7"> <h4 class="card-text">Medication</h4></div>
+                                <div class="col-5 card-image"><i class="fas fa-pills"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

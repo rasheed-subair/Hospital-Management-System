@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HospitalManagement.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <a href="/Doctor/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add Doctor</a>
+    <hr />
+    <h4 class="mb-3 text-secondary text-center">Doctors</h4>
+</div>
+
+<div class="container" align="right">
+    @using (Html.BeginForm())
+    {
+        @Html.TextBox("SearchString", null, new { @class = "form-control col-md-4 mb-2", placeholder = "Search by name" })
+        <input type="submit" value="Search" class="btn btn-outline-info mb-3" />
+    }
+</div>
+
+<table class="table table-hover">
+    <tr class="bg-light">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.DoctorId }, new { @class = "btn btn-primary btn-sm" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.DoctorId }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

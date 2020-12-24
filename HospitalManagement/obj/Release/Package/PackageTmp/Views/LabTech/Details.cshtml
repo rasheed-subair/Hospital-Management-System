@@ -1,0 +1,36 @@
+﻿@model HospitalManagement.Models.LabTech
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div style="font-size: 1.2em;">
+    <hr />
+    <table class="table-hover">
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Name)</b></td>
+            <td>@Html.DisplayFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Email)</b></td>
+            <td>@Html.DisplayFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Phone)</b></td>
+            <td>@Html.DisplayFor(model => model.Phone)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Address)</b></td>
+            <td>@Html.DisplayFor(model => model.Address)</td>
+        </tr>
+    </table>
+</div>
+
+<p>
+    <div class="my-3">
+        <a href="/LabTech/Index" class="btn btn-outline-secondary"><i class="fas fa-chevron-left"></i> To list</a>
+    </div>
+</p>

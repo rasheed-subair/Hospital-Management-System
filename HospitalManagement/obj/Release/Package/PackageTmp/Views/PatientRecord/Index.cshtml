@@ -1,0 +1,331 @@
+﻿@model IEnumerable<HospitalManagement.Models.PatientRecord>
+
+@{
+    if (Session["AdminId"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    if (Session["DoctorId"] != null)
+    {
+        Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+    }
+
+    if (Session["NurseId"] != null)
+    {
+        Layout = "~/Views/Shared/_NurseLayout.cshtml";
+    }
+
+    if (Session["PharmacistId"] != null)
+    {
+        Layout = "~/Views/Shared/_PharmacistLayout.cshtml";
+    }
+
+    if (Session["LabTechId"] != null)
+    {
+        Layout = "~/Views/Shared/_LabTechLayout.cshtml";
+    }
+
+    if (Session["AccountantId"] != null)
+    {
+        Layout = "~/Views/Shared/_AccountantLayouts.cshtml";
+    }
+}
+
+@if (Session["AdminId"] != null)
+{
+    <div>
+        <a href="/PatientRecord/Create" class="btn btn-outline-primary mb-3"><i class="far fa-plus-square"></i> Add Record</a>
+        <hr />
+        <h4 class="mb-3 text-secondary text-center">Patient Records</h4>
+    </div>
+}
+
+
+<div class="container" align="right">
+    @using (Html.BeginForm())
+    {
+        @Html.TextBox("SearchString", null, new { @class = "form-control col-md-4 mb-2", placeholder = "Search by Patient ID" })
+        <input type="submit" value="Search" class="btn btn-outline-info mb-3" />
+    }
+</div>
+
+<table class="table table-hover">
+    <tr class="bg-light">
+        @*TO BE VIEWED BY ADMIN *@
+        @if (Session["AdminId"] != null)
+        {
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Doctor Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdmissionCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaidTotal)
+            </th>
+            <th></th>
+        }
+
+        @*TO BE VIEWED BY Doctor *@
+        @if (Session["DoctorId"] != null)
+        {
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Doctor Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complaint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDischarged)
+            </th>
+            <th></th>
+        }
+
+        @*TO BE VIEWED BY Nurse *@
+        @if (Session["NurseId"] != null)
+        {
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Doctor Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToBeAdmitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDischarged)
+            </th>
+            <th></th>
+        }
+
+        @*TO BE VIEWED BY Pharmacist *@
+        @if (Session["PharmacistId"] != null)
+        {
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Doctor Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaidMed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedsGiven)
+            </th>
+            <th></th>
+        }
+
+        @*TO BE VIEWED BY LabTech *@
+        @if (Session["LabTechId"] != null)
+        {
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Doctor Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestRequired)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceTest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaidTest)
+            </th>
+            <th></th>
+        }
+
+        @*TO BE VIEWED BY Accountant *@
+        @if (Session["AccountantId"] != null)
+        {
+            <th>
+                Patient Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaidMed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaidTest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaidTotal)
+            </th>
+            <th></th>
+        }
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*TO BE VIEWED BY ADMIN *@
+            @if (Session["AdminId"] != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.FirstName) @Html.DisplayFor(modelItem => item.Patient.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmitted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdmissionCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaidTotal)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-2" })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm mb-2" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PatientRecordId }, new { @class = "btn btn-danger btn-sm mb-2" })
+                </td>
+            }
+
+            @*TO BE VIEWED BY Doctor *@
+            @if (Session["DoctorId"] != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.FirstName) @Html.DisplayFor(modelItem => item.Patient.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Complaint)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmitted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDischarged)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm mb-1" })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
+                </td>
+            }
+
+            @*TO BE VIEWED BY Nurse *@
+            @if (Session["NurseId"] != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.FirstName) @Html.DisplayFor(modelItem => item.Patient.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToBeAdmitted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmitted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDischarged)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
+                </td>
+            }
+
+            @*TO BE VIEWED BY Pharmacist *@
+            @if (Session["PharmacistId"] != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.FirstName) @Html.DisplayFor(modelItem => item.Patient.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaidMed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedsGiven)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
+                </td>
+            }
+
+            @*TO BE VIEWED BY LabTech *@
+            @if (Session["LabTechId"] != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.FirstName) @Html.DisplayFor(modelItem => item.Patient.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestRequired)
+                </td>
+                <td>
+                    ₦@Html.DisplayFor(modelItem => item.PriceTest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaidTest)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
+                </td>
+            }
+
+            @*TO BE VIEWED BY Accountant *@
+            @if (Session["AccountantId"] != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.FirstName) @Html.DisplayFor(modelItem => item.Patient.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaidMed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaidTest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaidTotal)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Record", "Edit", new { id = item.PatientRecordId }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientRecordId }, new { @class = "btn btn-primary btn-sm" })
+                </td>
+            }
+        </tr>
+    }
+</table>

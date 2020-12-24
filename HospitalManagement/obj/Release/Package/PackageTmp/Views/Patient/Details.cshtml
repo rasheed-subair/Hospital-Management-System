@@ -1,0 +1,161 @@
+﻿@model HospitalManagement.Models.Patient
+
+@{
+    if (Session["AdminId"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    if (Session["DoctorId"] != null)
+    {
+        Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+    }
+}
+
+<h2>Details</h2>
+<hr />
+<div class="row">
+    <hr />
+    <div class="col-9">
+        <table class="table-hover my-4">
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.PatientId)</b></td>
+                <td> @Html.DisplayFor(model => model.PatientId)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.FirstName)</b></td>
+                <td> @Html.DisplayFor(model => model.FirstName)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.LastName)</b></td>
+                <td> @Html.DisplayFor(model => model.LastName)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Phone)</b></td>
+                <td> @Html.DisplayFor(model => model.Phone)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Email)</b></td>
+                <td> @Html.DisplayFor(model => model.Email)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Address)</b></td>
+                <td> @Html.DisplayFor(model => model.Address)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.PatientGender)</b></td>
+                <td> @Html.DisplayFor(model => model.PatientGender)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.DOB)</b></td>
+                <td> @Html.DisplayFor(model => model.DOB)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Occupation)</b></td>
+                <td> @Html.DisplayFor(model => model.Occupation)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Marital_Status)</b></td>
+                <td> @Html.DisplayFor(model => model.Marital_Status)</td>
+            </tr>
+            <tr><td>----------------------------</td></tr>
+            <tr>
+                <td colspan="3"><h4>Emergency Contact</h4></td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.ECName)</b></td>
+                <td> @Html.DisplayFor(model => model.ECName)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.ECRelationship)</b></td>
+                <td> @Html.DisplayFor(model => model.ECRelationship)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.ECPhone)</b></td>
+                <td> @Html.DisplayFor(model => model.ECPhone)</td>
+            </tr>
+            <tr><td>----------------------------</td></tr>
+            <tr>
+                <td colspan="3"><h4>Medical History</h4></td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Medication)</b></td>
+                <td> @Html.DisplayFor(model => model.Medication)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Allergies)</b></td>
+                <td> @Html.DisplayFor(model => model.Allergies)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Arthritis)</td>
+                <td> @Html.DisplayFor(model => model.Arthritis)</td>
+
+                <td>@Html.DisplayNameFor(model => model.Asthma)</td>
+                <td> @Html.DisplayFor(model => model.Asthma)</td>
+
+                <td>@Html.DisplayNameFor(model => model.Cancer)</td>
+                <td> @Html.DisplayFor(model => model.Cancer)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Depression)</td>
+                <td> @Html.DisplayFor(model => model.Depression)</td>
+
+                <td>@Html.DisplayNameFor(model => model.Diabetes)</td>
+                <td> @Html.DisplayFor(model => model.Diabetes)</td>
+
+                <td>@Html.DisplayNameFor(model => model.Epilepsy)</td>
+                <td> @Html.DisplayFor(model => model.Epilepsy)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Heart_Disease)</td>
+                <td> @Html.DisplayFor(model => model.Heart_Disease)</td>
+
+                <td>@Html.DisplayNameFor(model => model.HBP)</td>
+                <td> @Html.DisplayFor(model => model.HBP)</td>
+
+                <td>@Html.DisplayNameFor(model => model.High_Cholesterol)</td>
+                <td> @Html.DisplayFor(model => model.High_Cholesterol)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Renal_Disease)</td>
+                <td> @Html.DisplayFor(model => model.Renal_Disease)</td>
+
+                <td>@Html.DisplayNameFor(model => model.Stroke)</td>
+                <td> @Html.DisplayFor(model => model.Stroke)</td>
+
+                <td>@Html.DisplayNameFor(model => model.Thyroid) </td>
+                <td> @Html.DisplayFor(model => model.Thyroid)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Alcohol)</td>
+                <td> @Html.DisplayFor(model => model.Alcohol)</td>
+
+                <td>@Html.DisplayNameFor(model => model.Smoke)</td>
+                <td> @Html.DisplayFor(model => model.Smoke)</td>
+
+                <td>@Html.DisplayNameFor(model => model.Caffeine)</td>
+                <td> @Html.DisplayFor(model => model.Caffeine)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Recreational_Drugs)</td>
+                <td> @Html.DisplayFor(model => model.Recreational_Drugs)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="col-3">
+        <img src="~/Content/images/@Model.Photograph" width="150" height="200" alt="Photo" 
+             style="border: 1px dashed gray; border-radius: 6px; padding: 6px;" /><br />
+
+        <a href="~/Content/images/@Model.Photograph" class="btn btn-sm btn-outline-secondary mt-2" 
+           style="width: 40%;" target="_blank">
+            <i class="far fa-eye"></i> View
+        </a>
+    </div>
+</div>
+
+
+
+<div class="my-3">
+    <a href="/Patient/Index" class="btn btn-outline-secondary mb-3"><i class="fas fa-chevron-left"></i> To list</a>
+</div>

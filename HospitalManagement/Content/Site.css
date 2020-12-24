@@ -2897,7 +2897,7 @@ body.is-touch .wrapper.style3 {
         text-transform: none !important;
     }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 580px) {
 
     .navPanelToggle {
         display: block;

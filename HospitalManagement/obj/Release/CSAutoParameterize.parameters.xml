@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="HospitalContext-Web.config Connection String" description="HospitalContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=HospitalDatabaseTest;Integrated Security=SSPI;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\hp\\source\\repos\\HospitalManagement\\HospitalManagement\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HospitalContext']/@connectionString" />
+  </parameter>
+</parameters>
